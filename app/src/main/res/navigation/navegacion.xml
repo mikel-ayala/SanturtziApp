@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegacion"
+    app:startDestination="@id/explicacionRutaFragment">
+    <fragment
+        android:id="@+id/explicacionRutaFragment"
+        android:name="com.g2.santurtziapp.fragments.explicaciones.ExplicacionRutaFragment"
+        android:label="fragment_explicacion_ruta"
+        tools:layout="@layout/fragment_explicacion_ruta" >
+        <action
+            android:id="@+id/action_Ruta_Sitio"
+            app:destination="@id/explicacionSitioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/explicacionSitioFragment"
+        android:name="com.g2.santurtziapp.fragments.explicaciones.ExplicacionSitioFragment"
+        android:label="fragment_explicacion_sitio"
+        tools:layout="@layout/fragment_explicacion_sitio" >
+        <action
+            android:id="@+id/action_Sitio_Juego"
+            app:destination="@id/explicacionJuegoFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_Sitio_Hasiera"
+            app:destination="@id/explicacionRutaFragment"
+            app:popUpTo="@id/explicacionRutaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/explicacionJuegoFragment"
+        android:name="com.g2.santurtziapp.fragments.explicaciones.ExplicacionJuegoFragment"
+        android:label="fragment_explicacion_juego"
+        tools:layout="@layout/fragment_explicacion_juego" >
+        <action
+            android:id="@+id/action_Juego_Final"
+            app:destination="@id/explicacionFinalFragment2" />
+        <action
+            android:id="@+id/action_Juego_Hasiera"
+            app:destination="@id/explicacionRutaFragment"
+            app:popUpTo="@id/explicacionRutaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/explicacionFinalFragment2"
+        android:name="com.g2.santurtziapp.fragments.explicaciones.ExplicacionFinalFragment"
+        android:label="fragment_explicacion_final"
+        tools:layout="@layout/fragment_explicacion_final" >
+        <action
+            android:id="@+id/action_Final_Ruta"
+            app:destination="@id/explicacionRutaFragment"
+            app:popUpTo="@id/explicacionRutaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Historia de Santurtzi</string>
+    <string name="QS">Esta aplicación ha sido desarrollada por alumnos de la Universidad del País Vasco(Alain Alaña, Ana Garaitagoitia, Alazne Hernández, Oier Melsio y Garazi Siara) y de CIFP Txurdinaga (Mikel Ayala, Gonzalo Alonso y Josu Morán) con el fin de ayudar a los profesores de E.P y a sus alumnos/as a conocer Santurtzi mediante juegos didácticos de manera que aprendan divirtiéndose.</string>
+
+    <string name="Apodo">Apodo</string>
+    <string name="existe">Ya existe una partida con ese apodo</string>
+
+    <string name="api_response_error">API response error: \'%1$s\'.</string>
+
+    <!--Opciones del menú-->
+    <string name="Home">Inicio</string>
+    <string name="Cuenta">Cuenta</string>
+    <string name="QuienSomos">¿Quiénes somos?</string>
+    <string name="CerrarSesion">Cerrar sesión</string>
+    <string name="Salir">Salir</string>
+    <string name="Profe">Profesor</string>
+    <string name="Alumno">Alumno</string>
+    <string name="menu_abrir">Abrir</string>
+    <string name="menu_cerrar">Cerrar</string>
+    <string name="confirmar">Si</string>
+    <string name="Mapa">Mapa</string>
+    <string name="Menu">Menu</string>
+
+    <string name="volver">¿Quieres volver al mapa?</string>
+
+    <!--Login profesor-->
+    <string name="ModoGuiado">Modo guiado</string>
+    <string name="ModoLibre">Modo libre</string>
+    <string name="Jugar">Jugar</string>
+
+    <string name="requesito">Necesitas estar al menos a 50m del punto para jugar</string>
+    <string name="noiniciado">Necesitas iniciar una partida primero</string>
+
+    <string name="seguroSalir">¿Quieres salir de la aplicación?</string>
+
+    <!--Login profesor-->
+    <string name="Bootonlog">Acceder</string>
+    <string name="pass">Contraseña</string>
+    <string name="logError">La contraseña introducida no es correcta</string>
+    <string name="explicacionprofesor">Accede a las funcionalidades especiales de profesor introduciendo la contraseña maestra a continuacion.</string>
+    <string name="Verdadero">Verdadero</string>
+    <string name="Falso">Falso</string>
+    <string name="Validar">Validar</string>
+    <string name="Partidas">Partidas</string>
+    <string name="Ranking">Ranking</string>
+    <string name="Partida_nueva">Partida nueva</string>
+    <string name="j8">" Aunque no me dan mucha importancia, soy fundamental en la historia del mundo. Soy capaz de hacer cualquier trabajo, incluso un trabajo duro como las sardineras. ¿Quién soy? "</string>
+    <string name="preguntamal">Alguna pregunta esta mal</string>
+    <string name="j41">" ¿Cuántas imágenes de mujeres hay en el interior de la cúpula? "</string>
+    <string name="error">Otra vez será</string>
+    <string name="j42">" ¿Cuántas figuras femeninas hay en la base del quiosco? "</string>
+    <string name="test1">" ¿En qué año se construyó el Ayuntamiento de Santurtzi? "</string>
+    <string name="test2">" ¿Cuántos alcaldes ha tenido Santurtzi? "</string>
+    <string name="test3">" ¿Cuántas mujeres han sido alcaldesas? "</string>
+    <string name="test4">" ¿Quién es el actual alcalde? "</string>
+    <string name="test5">" ¿Qué pasa cuando son fiestas en el tejado del Ayuntamiento? "</string>
+    <string name="test5a">a) El alcalde da el pregon</string>
+    <string name="test5b">b) La Mentxu sale volando</string>
+    <string name="test5c">c) La mentxu sale de su huevo</string>
+    <string name="test5d">d) Todas están bien</string>
+    <string name="VF1">" Estas casas fueron pensadas en los marineros. "</string>
+    <string name="VF2">" Las sardineras vigilaban hasta que los pescadores regresaban. "</string>
+    <string name="VF3">" El barrio de pescadores está en Mamariga. "</string>
+    <string name="VF4">" Los pisos superiores de la casa servían para guardar los útiles de pesca. "</string>
+    <string name="VF5">" La planta baja de la casa servía para guardar los útiles de pesca. "</string>
+    <string name="enhorabuena">¡¡Felicidades!!</string>
+
+    <string name="parada1">Puerto de Santurtzi</string>
+    <string name="parada2">Cofradía de Pescadores de Santurtzi</string>
+    <string name="parada3">Club de Remo Itsasoko Ama</string>
+    <string name="parada4">Parque de Santurtzi(quiosco)</string>
+    <string name="parada5">Ayuntamiento de Santurtzi</string>
+    <string name="parada6">Barrio de pescadores</string>
+    <string name="parada7">Parque de la Sardinera</string>
+    <string name="parada8">Adivinación final</string>
+
+    <string name="hasiera1">¡Hola, amig@! Yo soy la sardinera \"Bella Charo\" y hoy juntos conoceremos el papel de las mujeres en la historia de Santurtzi.</string>
+    <string name="hasiera2">Santurtzi es un municipio de Bizkaia. Puerto pesquero que actualmente cuenta con 46.069 habitantes. En la historia de este país el papel de las mujeres siempre ha sido muy importante, por eso queremos reivindicarlo y dar a las mujeres la importancia que merecen. Para conseguirlo necesitamos su ayuda. Tienes que superar todas las pruebas que aparecen a lo largo de la historia para conseguir pistas. Cuando consigas todas las pistas sabrás el misterio que hay detrás de la historia de Santurtzi.</string>
+    <string name="portua1">Santurtzi ha sido uno de los puertos vizcaínos que más embarcaciones ha utilizado para la pesca de bajura. Antiguamente, la trainera se dedicaba a la pesca, pero poco a poco se fueron utilizando barcos movidos por motos para poder coger más pescado.</string>
+    <string name="portua2">Aunque el nombre de Santurtzi proviene del santo San Jorge (un hombre), la Virgen del Carmen (una mujer) es la patrona de Santurtzi. La Virgen del Carmen es muy importante para Santurtzi. Por eso, ¡necesitamos su ayuda para arreglar este puzzle! ¿Estás listo?</string>
+    <string name="portua3">¡Perfecto! ¡Has cumplido la primera prueba, aquí tienes tu recompensa! La gente de Santurtzi cree que la Virgen del Carmen protege a todos los arrantzales y habitantes del pueblo.</string>
+    <string name="portua4">El 16 de julio es el día del Carmen y se celebra una procesión marítima. ¡Vamos a la siguiente prueba!</string>
+    <string name="kofradia1">Antiguamente se celebraban en la Cofradía de Pescadores los famosos Encates de Pescado, a los que acudían los habitantes de Santurtzi para poder obtener el pescado. Normalmente eran las sardineras las encargadas de este trabajo. Además, en la cofradía también se guardaban todos los utensilios de pesca, como las redes que tejían las sardineras.</string>
+    <string name="kofradia2">Sabiendo esto tienes que hacer parejas en este ejercicio. ¡Presta atención a las siguientes fotos para poder hacer parejas!</string>
+    <string name="kofradia3">¡Perfecto! Con estas fotos hemos aprendido que los pescadores capturaban peces, pero eran las sardineras las que hacían las redes. Además, los pescados que conseguían las sardineras en las subastas eran a veces comprados para comer en casa. ¡Pero otras veces los tomaban para ir a vender peces a otros pueblos! ¡Viva nuestra sardinera! ¡Toma tu recompensa!</string>
+    <string name="sotera1">En esta parada hablaremos del remo. El remo es conocido hoy como un deporte. Pero antiguamente, los pescadores de Santurtzi lo utilizaban como herramienta para ir a pescar. Para remar se necesita trainera y los dos remos.</string>
+    <string name="sotera2">Antaño Santurtzi era conocido como un importante puerto pesquero. En la actualidad Santurtzi es famosa, entre otras cosas, por el club de remo Sotera. Este año, el club de remo Sotera ha ganado la Liga Eusko Label de remo. Pero cuando dicen que ha ganado la Sotera, significa que ha ganado el equipo de los chicos. ¿Y las chicas? ¿No reman? Si quieres saber esto, tendrás que superar este juego. ¿Listo? ¡Adelante!</string>
+    <string name="sotera3">He aquí una sopa de letras. Aquí tienes que buscar las siguientes palabras: trainera, remos, pesca, deporte, equipo, sotera y mujer. ¡Buena suerte!</string>
+    <string name="sotera4">¡Muy bien! ¡Has encontrado todas las palabras! ¡Aquí tienes tu recompensa!</string>
+    <string name="sotera5">¡Sí, las chicas también reman! Y te pondré un ejemplo maravilloso. Izaskun Etxaniz, santurtziarra de 23 años, lleva 11 años remando. Izaskun es campeona estatal de remo de mar y subcampeona olímpica de remo. Increíble, ¿verdad? Desgraciadamente esta información no es muy popular, ¡pero nosotros hemos venido a cambiarla! ¿Seguimos con la aventura?</string>
+    <string name="kioskoa1">En el centro del parque de Santurtzi encontramos un quiosco de música construido en 1917. Hoy su base está decorada con mosaicos cerámicos en los que aparecen los pueblos más emblemáticos de la zona. Además, aparecen imágenes de sardineras y pescadores. Dentro de la cúpula también podemos encontrar imágenes de gente importante.</string>
+    <string name="kioskoa2">En esta actividad deberás cuantificar cuántas figuras de mujeres hay en el quiosco del parque de Santurtzi. Por un lado, tienes que contar cuántas mujeres aparecen en el interior de la cúpula. Por otro lado, debes contar las imágenes en las que sólo aparecen mujeres en las imágenes que están en la base. ¿Listo? ¡Vamos!</string>
+    <string name="kioskoa3">¡Lo has adivinado! ¡Muy bien! ¡Aquí tienes tu recompensa! Dado que las mujeres han sido muy importantes en la historia de Santurtzi, ¿no es raro que aparezcan tan poco en esos dibujos? ¡Tenemos la oportunidad de cambiar las cosas! ¡Sigue!</string>
+    <string name="udaletxea1">El Ayuntamiento de Santurtzi se construyó en 1905. En el Ayuntamiento de Santurtzi los vecinos pueden hacer muchas gestiones y es donde trabajan el alcalde y los concejales. Desde 1847 hasta la actualidad, Santurtzi ha tenido 53 alcaldes. De esos 53 alcaldes, sólo uno es mujer, Aintzane Urkijo, la actual alcaldesa.</string>
+    <string name="udaletxea2">Además de eso, en el tejado del Ayuntamiento de Santurtzi ocurre algo muy curioso cuando se trata de fiestas. Mentxu (mascota del pueblo) sale de su huevo y cuando eso ocurre comienzan las fiestas de Santurtzi.</string>
+    <string name="udaletxea3">Hemos visto muchas cosas sobre el Ayuntamiento. Ahora tienes que demostrar cuánto has aprendido en la siguiente actividad. Tendrás que responder a cinco preguntas para conseguir el premio. ¡Vamos!</string>
+    <string name="udaletxea4">¡Has acertado todas las preguntas! ¡Aquí tienes tu recompensa! ¿No te parece injusto que de los 53 alcaldes que ha tenido Santurtzi, sólo uno sea mujer? ¡En nuestras manos está seguir cambiando la historia!</string>
+    <string name="auzoa1">El barrio de pescadores está en Mamariga. Estas casas fueron pensadas en pescadores y sardineras. Estas casas tienen tres pisos. La planta baja se destinaba a la guarda de aperos de pesca y las otras dos a vivienda.</string>
+    <string name="auzoa2">En estas casas vivían pescadores y sardineras. Los pescadores iban a pescar al mar, unas veces horas, otras días. Eran las sardineras las que se quedaban al acecho para saber cuándo llegaban los pescadores y buscarlos. Si lo ves, desde aquí podemos ver muy bien el mar, por eso las casas se construyeron en este lugar.</string>
+    <string name="auzoa3">En la siguiente actividad aparecerán algunas frases. Según la información que hemos visto, tendrás que decir si esas frases son verdaderas o falsas. Presta atención y lee bien. ¡Vamos a empezar!</string>
+    <string name="auzoa4">¡Estupendo! ¡Aquí tienes tu recompensa! ¿No es curioso que si los sardineras le acechaban desde esas casas le conocieran como casas de pescadores? ¿Y las sardineras? Estamos muy cerca del final.</string>
+    <string name="sardinera1">Estamos en el parque de la Sardinera. La estatua que aquí ves fue dedicada a Rosario Santín, la \"Bella Charo\", una conocida sardinera de Santurtzi. Hasta este parque venían las sardineras a ver los barcos que venían del puerto. Si traían los remos arriba, venían cargados de pescado, y las sardineras bajaban corriendo al puerto.</string>
+    <string name="sardinera2">Las sardineras se ponían en la cabeza cestas que pesaban 20 kilos y iban de pueblo en pueblo vendiendo pescado traído por los pescadores. Era un trabajo muy duro y poco validado. La canción \"Desde Santurce a Bilbao\" cuenta el trabajo de estas sardineras, ¡escucha atentamente!</string>
+    <string name="sardinera3">¿Bonita, no es cierto? Pues espero que la hayas escuchado con atención, ya que en la próxima actividad tendrás que rellenar los huecos que aparecen en esta canción. ¡Vamos!</string>
+    <string name="sardinera4">¡Estupendo! ¡Muy bonito homenaje a nuestros queridos sardineras! ¡Toma, aquí tienes tu último premio!</string>
+    <string name="asmakizuna1">Nuestra aventura está a punto de terminar, pero para terminar tendrás que superar el último invento. Para responder a ese acertijo tendrás que crear una palabra con todas las letras que hayas conseguido. ¡Concéntrate y vamos a hacer el último ejercicio!</string>
+    <string name="asmakizuna2">Aunque no me dan mucha importancia, soy fundamental en la historia del mundo. Soy capaz de hacer cualquier trabajo, incluso un trabajo duro como las sardineras. ¿Quién soy?</string>
+    <string name="asmakizuna3">¡Muy bien! ¡Lo lograste! La palabra es EMAKUME. Porque las mujeres son capaces de cualquier trabajo y así lo han demostrado a lo largo de la historia. Por eso hay que empezar a darles la importancia que merecen, ¡y espero que a partir de ahora les ayudes a conseguirlo! ¡Gracias por participar en esta historia! ¡Hasta la próxima vez!</string>
+
+    <string name="creditos">
+    "Entidades colaboradoras: UPV/EHU, CIFP Txurdinaga."\n
+    " "\n
+    "Grupos partícipes: AGO, Gr2Dev."\n
+    " "\n
+    "Diseñadores: Alain Alaña, Ana Garaitagoitia, Alazne Hernández, Oier Melsio, Garazi Siara."\n
+    " "\n
+    "Desarrolladores: Mikel Ayala, Gonzalo Alonso, Josu Morán."
+    </string>
+
+    <string name="invitado">Invitado</string>
+
+    <string name="clickCancion">Click para escuchar</string>
+
+    <string name="noContra">Introduce la contraseña por favor</string>
+    <string name="noApodo">Introduce un apodo por favor</string>
+
+    <string name="failFB">Ha ocurrido un error, compruebe la conexión o vuelve a intentarlo más tarde</string>
+
+    <string name="ubicacion">Sin permisos de ubicación no es posible jugar.</string>
+
+    <string name="finish">FINALIZADO</string>
+    <string name="acierto">Bien hecho</string>
+    <string name="respuesta">Respuesta</string>
+
+</resources>

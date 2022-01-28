@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_inicio"
+            android:title="@string/Home"
+            android:icon="@drawable/ic_outline_home_24" />
+
+        <item
+            android:id="@+id/nav_ranking"
+            android:title="@string/Ranking"
+            android:icon="@drawable/ic_baseline_star_outline_24" />
+
+        <item
+            android:id="@+id/nav_quienes"
+            android:title="@string/QuienSomos"
+            android:icon="@drawable/ic_outline_groups_24" />
+
+    </group>
+
+    <item android:title="@string/Cuenta">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_profe"
+                    android:title="@string/Profe"
+                    android:icon="@drawable/ic_outline_admin_panel_settings_24" />
+
+
+                <item
+                    android:id="@+id/nav_cerrar_sesion"
+                    android:title="@string/CerrarSesion"
+                    android:icon="@drawable/ic_baseline_logout_24" />
+
+                <item
+                    android:id="@+id/nav_salir"
+                    android:title="@string/Salir"
+                    android:icon="@drawable/ic_baseline_power_settings_new_24" />
+
+            </group>
+
+        </menu>
+
+    </item>
+
+</menu>

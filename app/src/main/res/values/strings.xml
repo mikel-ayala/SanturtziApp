@@ -1,0 +1,155 @@
+<resources>
+
+    <string name="app_name">Santurtziko historia</string>
+    <string name="QS">Aplikazio hori Euskal Herriko Unibertsitateko (Alain Alaña, Ana Garaitagoitia, Alazne Hernández, Oier Melsio eta Garazi Siara) eta CIFP Txurdinagako (Mikel Ayala, Gonzalo Alonso eta Josu Morán) ikasleek garatu dute, LHko irakasleei eta haien ikasleei Santurtzi jolas didaktikoen bidez ezagutzen laguntzeko, dibertituz ikas dezaten.</string>
+
+    <string name="Apodo">Ezizen</string>
+
+    <string name="existe">Badago partida bat ezizen horrekin</string>
+
+    <string name="api_response_error">API response error: \'%1$s\'.</string>
+
+    <!--Opciones del menú-->
+    <string name="Home">Hasiera</string>
+    <string name="CerrarSesion">Itxi saioa</string>
+    <string name="Salir">Irten</string>
+    <string name="Cuenta">Saioa</string>
+    <string name="Partidas">Partidak</string>
+    <string name="Partida_nueva">Partida berria</string>
+    <string name="QuienSomos">Nor gara?</string>
+    <string name="Profe">Irakasle</string>
+    <string name="Alumno">Ikasle</string>
+    <string name="menu_abrir">Ireki</string>
+    <string name="menu_cerrar">Itxi</string>
+    <string name="confirmar">Bai</string>
+    <string name="Menu">Menu</string>
+    <string name="Mapa">Mapa</string>
+
+    <string name="volver">Mapara itzuli nahi duzu?</string>
+
+    <string name="noiniciado">Lehenengo partida bat hasi behar duzu</string>
+
+    <string name="seguroSalir">Aplikaziotik atera nahi duzu?</string>
+
+
+    <!--Modo profesor-->
+    <string name="ModoGuiado">Modu guidatuan</string>
+    <string name="ModoLibre">Modu askean</string>
+    <string name="Jugar">Jokatu</string>
+
+    <string name="requesito">Jokatzeko, gutxienez puntutik 50 metrora egon behar duzu</string>
+
+    <!--Login profesor-->
+    <string name="Bootonlog">Sartu</string>
+    <string name="pass">Pasahitza</string>
+    <string name="logError">Sartutako pasahitza ez da zuzena</string>
+    <string name="explicacionprofesor">" Irakaslearen funtzionalitate berezietara sartzeko, sartu maesta pasahitza jarraian. "</string>
+
+    <!--Verdadero y falso-->
+    <string name="Verdadero">Egia</string>
+    <string name="Falso">Gezurra</string>
+    <!--Validar-->
+    <string name="Validar">Egiaztatu</string>
+    <string name="Ranking">Sailkapena</string>
+    <!--JUEGOS-->
+    <string name="finish">AMAITUTA</string>>
+    <string name="enhorabuena">ZORIONAK!!</string>
+    <string name="preguntamal">" Galderaren bat gaizki dago "</string>
+    <string name="acierto">Oso ondo</string>
+    <string name="error">Berriro izango da</string>
+    <string name="j8">Garrantzi handirik ematen ez didaten arren, funtsezkoa naiz munduaren historian. Edozein lan egiteko gai naiz, baita sardina-saltzaileak bezalako lan gogorra ere. Nor naiz?</string>
+    <string name="j41">Zenbat emakumeen irudiak daude kupularen barrualdean?</string>
+    <string name="j42">Zenbat emakumeen irudiak daude kioskoaren oinarrian?</string>
+    <string name="test1">Zein urtetan eraiki zen Santurtziko udaletxea?</string>
+    <string name="test2">Zenbat alkate izan ditu Santurtzik?</string>
+    <string name="test3">Zenbat emakume izan dira alkate?</string>
+    <string name="test4">Nor da egungo alkatea?</string>
+    <string name="test5">Zer gertatzen da udaletxeko teilatuan festak direnean?</string>
+    <string name="test5a">a) Alkatea pregoia eman du.</string>
+    <string name="test5b">b) Mentxu hegan ateratzen da.</string>
+    <string name="test5c">c) Mentxu bere arrautzatik irteten da.</string>
+    <string name="test5d">d) Denak daude ondo.</string>
+    <string name="VF1">"Etxe hauek marinelengan pentsatuak izan ziren. "</string>
+    <string name="VF2">"Sardina-saltzaileak zelatan geratzen ziren arrantzaleak bueltatu arte. "</string>
+    <string name="VF3">Arrantzaleen auzoa Mamarigan dago.</string>
+    <string name="VF4">Etxearen goiko solairuak arrantzarako tresnak gordetzeko erabiltzen ziren.</string>
+    <string name="VF5">Etxearen beheko solairua arrantzarako tresnak gordetzeko erabiltzen zen.</string>
+
+    <string name="parada1">Santurtziko Portua</string>
+    <string name="parada2">Arrantzaleen Kofradia</string>
+    <string name="parada3">Itsasoko Ama Arraun Taldea</string>
+    <string name="parada4">Santurtziko Parkea (kioskoa)</string>
+    <string name="parada5">Santurtziko Udaletxea</string>
+    <string name="parada6">Arrantzaleen Auzoa</string>
+    <string name="parada7">Sardinerako Parkea</string>
+    <string name="parada8">Amaierako asmakizuna</string>
+
+    <!--Textos de paradas-->
+    <!--Hasiera(parada 0)-->
+    <string name="hasiera1">Kaixo lagun! Ni “Bella Charo” sardina-saltzailea naiz eta gaur elkarrekin emakumeen papera Santurtziko historian ezagutuko dugu.</string>
+    <string name="hasiera2">Santurtzi Bizkaiko udalerria da. Gaur egun 46.069 biztanle dituen arrantza portua. Herri honen historian emakumeen papera oso garrantzitsua izan da beti, horregatik aldarrikatu nahi dugu eta emakumeei merezi duten garrantzia eman nahi diegu. Hori lortzeko zure laguntza behar dugu. Istorioan zehar agertzen diren froga guztiak gainditu behar dituzu pistak lortzeko. Pista guztiak lortzen dituzunean, Santurtziko historiaren atzean dagoen misterioa jakingo duzu.</string>
+    <!--Portua(parada 1)-->
+    <string name="portua1">Santurtzi izan da baxurako arrantzarako ontzi gehien erabili dituen Bizkaiko portuetako bat. Antzinean, trainerua arrantzarako erabiltzen zen, baina pixkanaka motorrek mugitutako itsasontziak erabiltzen hasi ziren arrain gehiago hartu ahal izateko.</string>
+    <string name="portua2">Santurtziren izena San Jorge (gizon bat) santutik datorren arren, Karmengo Ama Birjina (emakume bat) da Santurtziko zaindaria. Karmengo Ama Birjina oso garrantzitsua da Santurtzirentzat. Horregatik, zure laguntza behar dugu puzzle hau konpontzeko! Prest zaude?</string>
+    <string name="portua3">Primeran! Lehenengo froga bete duzu, hemen daukazu zure saria! Santurtziko jendeak sinesten du Karmengo Amak arrantzale eta herriko biztanle guztiak babesten dituela.</string>
+    <string name="portua4">Uztailaren 16a Karmengo eguna da eta itsas prozesio bat egiten da. Goazen hurrengo frogara!</string>
+    <!--Kofradia(parada 2)-->
+    <string name="kofradia1">Antzina, arrantzaleen kofradian egiten ziren arrain-enkate ospetsuak, eta Santurtziko biztanleek joaten ziren arraina lortu ahal izateko. Normalean sardin-saltzaileak arduratzen ziren lan honetaz. Gainera, kofradian, arrantza tresna guztiak ere gordetzen ziren, sardin-saltzaileak ehuntzen zituzten sareak adibidez.</string>
+    <string name="kofradia2">Hau jakinda ariketa honetan bikoteak egin behar dituzu. Arreta jarri hurrengo argazkiei bikoteak egin ahal izateko!</string>
+    <string name="kofradia3">Primeran! Argazki hauekin ikasi egin dugu arrantzaleek arrainak harrapatzen zituztela, baina sardina-saltzaileak ziren sareak egiten zituztenak. Gainera, sardina-saltzaileak enkanteetan lortzen zituzten arrainak batzuetan etxean jateko erosten zituzten. Baina, beste batzuetan, beste herrietara arrainak saltzera joateko hartzen zituzten! Gora gure sardina-saltzaileak! Tori zure saria!</string>
+    <!--Sotera(parada 3)-->
+    <string name="sotera1">Geraleku honetan arraunari buruz hitz egingo dugu. Arrauna, gaur egun, kirol bat bezala ezagutzen da. Baina antzina, Santurtziko arrantzaleek arrantzara joateko tresna bezala erabiltzen zuten. Arraun egiteko trainerua eta bi arraunak behar dira.</string>
+    <string name="sotera2">Antzina Santurtzi arrantza-portu garrantzitsu bezala ezagutzen zen. Gaur egun berriz, Santurtzi famatua da, besteak beste, Sotera arraun taldeagatik. Aurten, Sotera arraun taldeak Eusko Label Arraun Liga irabazi du. Baina… Soterak irabazi duela esaten dutenean, mutilen taldeak irabazi duela esan nahi du. Eta neskak? Ez dute arraun egiten? Hau jakin nahi baduzu, jolas hau gainditu beharko duzu. Prest? Aurrera!</string>
+    <string name="sotera3">Hona hemen letra-zopa bat. Hemen hurrengo hitzak bilatu behar dituzu: trainerua, arraunak, arrantza, kirola, taldea, sotera eta emakumea. Zorte on!</string>
+    <string name="sotera4">Oso ondo! Hitz guztiak aurkitu dituzu! Hemen duzu zure saria!</string>
+    <string name="sotera5">Bai, neskek ere arraun egiten dute! Eta adibide zoragarri bat jarriko dizut. Izaskun Etxaniz 23 urteko santurtziarrak 11 urte daramatza arraunean. Izaskun estatuko itsas arrauneko txapelduna eta olinpiar arrauneko txapeldunordea da. Harrigarria ezta?  Zoritxarrez informazio hau ez da oso ezaguna, baina gu hori aldatzera etorri gara! Abenturarekin jarraituko dugu?</string>
+    <!--Kioskoa(parada 4)-->
+    <string name="kioskoa1">Santurtziko parkearen erdian 1917an eraikitako musika kioskoa aurki dezakegu. Gaur egun, bere oinarria, zeramikazko mosaikoz apaindua dago, non inguruko herririk esanguratsuenak agertzen diren. Gainera, sardina-saltzaile eta arrantzaleen irudiak agertzen dira. Kupularen barruan jende garrantzitsuaren irudiak ere aurki ditzakegu.</string>
+    <string name="kioskoa2">Santurtziko parkeko kioskoan zenbat emakumeen irudiak dauden zenbatu beharko duzu jarduera honetan. Alde batetik, kupularen barrualdean zenbat emakume agertzen diren zenbatu behar duzu. Beste aldetik, oinarrian dauden irudietan emakumeak soilik agertzen diren irudiak zenbatu behar dituzu. Prest? Goazen!</string>
+    <string name="kioskoa3">Asmatu duzu! Oso ondo! Hemen daukazu zure saria! Santurtziko historian emakumeak oso garrantzitsuak izan direnez, ez al da arraroa marrazki horietan hain gutxi agertzea? Gauzak aldatzeko aukera daukagu! Segi!</string>
+    <!--Udaletxea(parada 5)-->
+    <string name="udaletxea1">Santurtziko udaletxea 1905ean eraiki zen. Santurtziko udaletxean herritarrek gestio asko egin ditzakete eta alkateak eta zinegotziek lan egiten duten tokia da. 1847tik gaur egun arte 53 alkate izan ditu Santurtzik. 53 alkate horietatik bakarrik bat emakumea da, Aintzane Urkijo, egungo alkatea.</string>
+    <string name="udaletxea2">Horretaz gain, Santurtziko udaletxeko teilatuan oso gauza bitxia gertatzen da jaiak direnean. Mentxu (herriaren maskota) bere arrautzatik irteten da eta hori gertatzen denean hasten dira Santurtziko jaiak.</string>
+    <string name="udaletxea3">Gauza asko ikusi ditugu udaletxeari buruz. Orain, hurrengo jardueran zenbat ikasi duzun erakutsi behar duzu. Bost galderari erantzun beharko diezu saria lortzeko. Goazen!</string>
+    <string name="udaletxea4">Galdera guztiak asmatu dituzu! Hemen daukazu zure saria! Ez zaizu bidegabea iruditzen Santurtzik izan dituen 53 alkateetatik bakarra emakumea izatea? Gure esku dago historia aldatzen jarraitzea!</string>
+    <!--Auzoa(parada 6)-->
+    <string name="auzoa1">Arrantzaleen auzoa Mamarigan dago. Etxe hauek arrantzaleengan eta sardina-saltzaileengan pentsatuak izan ziren. Etxe hauek hiru solairu dituzte. Beheko solairua arrantzarako tresnak gordetzeko erabiltzen zen, eta beste biak etxebizitza gisa.</string>
+    <string name="auzoa2">Etxe horietan arrantzaleak eta sardina-saltzaileak bizi ziren. Arrantzaleak itsasora joaten ziren arrantzatzera, batzuetan orduak, beste batzuetan egunak. Sardina-saltzaileak ziren zelatan geratzen zirenak, arrantzaleak noiz iristen ziren jakin eta haien bila joateko. Ikusten baduzu, hemendik oso ondo ikus dezakegu itsasoa, horregatik etxeak toki honetan eraiki ziren.</string>
+    <string name="auzoa3">Hurrengo jardueran esaldi batzuk agertuko dira. Ikusi dugun informazioaren arabera, esaldi horiek egiazkoak edo gezurrezkoak diren esan beharko duzu. Arreta jarri eta ondo irakurri. Hasiko gara!</string>
+    <string name="auzoa4">Primeran egin duzu! Hemen daukazu zure saria! Ez al da bitxia sardina-saltzaileek zelatatzen bazuten etxe horietatik arrantzaleen etxeak bezala ezagutzea? Eta sardina-saltzaileak? Amaieratik oso gertu gaude… Jarraituko dugu!</string>
+    <!--Sardinera(parada 7)-->
+    <string name="sardinera1">Sardinerako parkean gaude. Hemen ikusten duzun estatua Rosario Santín-en omenez egin zen “Bella Charo” deiturikoa, Santurtziko sardina-saltzaile ezagun bat. Parke honetaraino sardina-saltzaileak zetozen, portutik zetozen itsasontziak ikustera. Arraunak gora ekartzen bazituzten, arrainez beteta etortzen ziren, eta sardina-saltzaileak korrika jaisten ziren portura.</string>
+    <string name="sardinera2">Sardina-saltzaileak 20 kilo pisatzen zuten saskiak jartzen zituzten buruan, eta herriz herri ibiltzen ziren arrantzaleek ekarritako arraina saltzen. Oso lan gogorra zen, eta ez oso balioztatua. “Desde Santurce a Bilbao” abestiak sardina-saltzaile horien lana kontatzen du, entzun arretaz!</string>
+    <string name="sardinera3">Polita ezta? Bada, espero dut arretaz entzun izana, hurrengo jardueran abesti honetan agertzen diren hutsuneak bete beharko baitituzu. Goazen!</string>
+    <string name="sardinera4">Primeran egin duzu! Oso omenaldi polita gure sardina-saltzaile maiteei! Tori, hemen daukazu zure azken saria!</string>
+    <!--Asmakizuna(parada "8")-->
+    <string name="asmakizuna1">Gure abentura amaitzear dago, baina amaitzeko azken asmakizuna gainditu beharko duzu. Asmakizun horri erantzuteko, hitz bat sortu beharko duzu lortu dituzun letra guztiekin. Kontzentratu eta… goazen azken ariketa egitera!</string>
+    <string name="asmakizuna2">Garrantzi handirik ematen ez didaten arren, funtsezkoa naiz munduaren historian. Edozein lan egiteko gai naiz, baita sardina-saltzaileak bezalako lan gogorra ere. Nor naiz?</string>
+    <string name="asmakizuna3">Oso ondo! Lortu duzu! EMAKUME da hitza. Emakumeak edozein lan egiteko gai direlako eta horrela erakutsi dute historian zehar. Horregatik, merezi duten garrantzia ematen hasi behar zaie, eta espero dut hemendik aurrera zuk hori lortzen laguntzea! Eskerrik asko istorio honetan parte hartzeagatik! Hurrengora arte!</string>
+
+    <string name="respuesta">Erantzuna</string>
+
+    <string name="invitado">Gonbidatu</string>
+
+    <string name="clickCancion">Click entzuteko</string>
+
+    <string name="creditos">
+    "Erakunde laguntzaileak: UPV/EHU, CIFP Txurdinaga."\n
+    " "\n
+    "Parte hartzen duten taldeak: AGO, Gr2Dev."\n
+    " "\n
+    "Diseinatzaileak: Alain Alaña, Ana Garaitagoitia, Alazne Hernández, Oier Melsio, Garazi Siara."\n
+    " "\n
+    "Garatzaileak: Mikel Ayala, Gonzalo Alonso, Josu Morán."
+    </string>
+
+    <string name="noContra">Sartu pasahitza mesedez</string>
+    <string name="noApodo">Sartu ezizen bat mesedez</string>
+
+    <string name="failFB">Errore bat gertatu da, egiaztatu konexioa edo saiatu berriro geroago</string>
+
+    <string name="ubicacion">Kokapen-baimenik gabe ezin da jokatu.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

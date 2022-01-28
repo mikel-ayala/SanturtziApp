@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Primary">#A466C2</color>
+    <color name="Secondary">#B950AD</color>
+    <color name="Third">#4FD81E</color>
+    <color name="Success">#662FFF00</color>
+    <color name="Danger">#66FF0000</color>
+    <color name="Disabled">#494949</color>
+</resources>

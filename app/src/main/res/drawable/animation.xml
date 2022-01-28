@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:drawable="@drawable/cofre1" android:duration="200"
+        />
+    <item android:drawable="@drawable/cofre2" android:duration="200"
+        />
+    <item android:drawable="@drawable/cofre3" android:duration="200"
+        />
+    <item android:drawable="@drawable/cofre4" android:duration="200"
+        />
+    <item android:drawable="@drawable/cofre5" android:duration="200"
+        />
+</animation-list>

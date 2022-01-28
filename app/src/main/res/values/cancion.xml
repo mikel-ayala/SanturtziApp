@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opcion1">
+        <item>"???"</item>
+        <item>Santurce</item>
+        <item>Santurtzi</item>
+        <item>Santutxu</item>
+    </string-array>
+    <string-array name="opcion2">
+        <item>"???"</item>
+        <item>falda</item>
+        <item>gona</item>
+        <item>salla</item>
+    </string-array>
+    <string-array name="opcion3">
+        <item>"???"</item>
+        <item>andando</item>
+        <item>corriendo</item>
+        <item>bailando</item>
+    </string-array>
+    <string-array name="opcion4">
+        <item>"???"</item>
+        <item>cantando</item>
+        <item>diciendo</item>
+        <item>gritando</item>
+    </string-array>
+    <string-array name="opcion5">
+        <item>"???"</item>
+        <item>sardinas</item>
+        <item>sardinitas</item>
+        <item>gallinitas</item>
+    </string-array>
+    <string-array name="opcion6">
+        <item>"???"</item>
+        <item>Santurce</item>
+        <item>Santurtzi</item>
+        <item>Santutxu</item>
+    </string-array>
+    <string-array name="opcion7">
+        <item>"???"</item>
+        <item>bailando</item>
+        <item>relagaladas</item>
+        <item>yo</item>
+    </string-array>
+</resources>

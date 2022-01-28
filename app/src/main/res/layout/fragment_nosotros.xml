@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="284dp"
+            android:layout_height="49dp"
+            android:text="DidaktikApp"
+            android:textAlignment="center"
+            android:textColor="#9C27B0"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.036" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="138dp"
+            android:layout_height="153dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/upv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="138dp"
+            android:layout_height="153dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/txurdi"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/txtQS"
+            android:layout_width="371dp"
+            android:layout_height="wrap_content"
+            android:text="@string/QS"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imgllamada"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtQS"
+            app:layout_constraintVertical_bias="0.0"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/llamada"/>
+
+        <TextView
+            android:id="@+id/txtllamada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="48980"
+            app:layout_constraintBottom_toBottomOf="@+id/imgllamada"
+            app:layout_constraintStart_toEndOf="@+id/imgllamada"
+            app:layout_constraintTop_toTopOf="@+id/imgllamada" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imgwas"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtllamada"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtllamada"
+            app:layout_constraintTop_toTopOf="@+id/txtllamada"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/whatsapp" />
+
+        <TextView
+            android:id="@+id/txtwas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="48980"
+            app:layout_constraintBottom_toBottomOf="@+id/imgwas"
+            app:layout_constraintStart_toEndOf="@+id/imgwas"
+            app:layout_constraintTop_toTopOf="@+id/imgwas" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imggmail"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgllamada"
+            app:layout_constraintStart_toStartOf="@+id/imgllamada"
+            app:layout_constraintTop_toBottomOf="@+id/imgllamada"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/gmail" />
+
+        <TextView
+            android:id="@+id/txtmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="ago@gmail.com"
+            app:layout_constraintBottom_toBottomOf="@+id/imggmail"
+            app:layout_constraintStart_toEndOf="@+id/imggmail"
+            app:layout_constraintTop_toTopOf="@+id/imggmail" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imginsta"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgwas"
+            app:layout_constraintStart_toStartOf="@+id/imgwas"
+            app:layout_constraintTop_toBottomOf="@+id/imgwas"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/instagram" />
+
+        <TextView
+            android:id="@+id/txtinsta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="ago_Santurtzi"
+            app:layout_constraintBottom_toBottomOf="@+id/imginsta"
+            app:layout_constraintStart_toEndOf="@+id/imginsta"
+            app:layout_constraintTop_toTopOf="@+id/imginsta" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imgtwiter"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/imggmail"
+            app:layout_constraintStart_toStartOf="@+id/imggmail"
+            app:layout_constraintTop_toBottomOf="@+id/imggmail"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/twitter" />
+
+        <TextView
+            android:id="@+id/txttuit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="ago_Santurtzi"
+            app:layout_constraintBottom_toBottomOf="@+id/imgtwiter"
+            app:layout_constraintStart_toEndOf="@+id/imgtwiter"
+            app:layout_constraintTop_toTopOf="@+id/imgtwiter" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/imgfacebook"
+            android:layout_width="36dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/imginsta"
+            app:layout_constraintStart_toStartOf="@+id/imginsta"
+            app:layout_constraintTop_toBottomOf="@+id/imginsta"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/facebook" />
+
+        <TextView
+            android:id="@+id/txtfacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="ago_Santurtzi"
+            app:layout_constraintBottom_toBottomOf="@+id/imgfacebook"
+            app:layout_constraintStart_toEndOf="@+id/imgfacebook"
+            app:layout_constraintTop_toTopOf="@+id/imgfacebook" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
