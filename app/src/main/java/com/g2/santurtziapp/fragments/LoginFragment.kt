@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import com.g2.santurtziapp.R
 import com.g2.santurtziapp.SharedApp
-import com.g2.santurtziapp.activitidades.DrawerActivity
 import com.g2.santurtziapp.activitidades.MainActivity
 import com.g2.santurtziapp.databinding.FragmentLoginBinding
 
@@ -20,25 +19,27 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         binding = FragmentLoginBinding.inflate(layoutInflater)
 
         binding.passwordInput.text.clear()
 
         val m: MainActivity? = activity as MainActivity?
 
+        //OVERRIDE DE EL ONBACKPRESSED DE LA ACTIVITY
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
                 m?.replaceFragment(PartidasFragment(), 1)
 
-            }
+            }//onBackPressed()
 
-        })
+        })//callback(viewLifecycleOwner, object : OnBackPressedCallback(true)
 
         binding.logButton.setOnClickListener{
 
-            var password: String = m!!.quitarEspacios(binding.passwordInput.text.toString())
+            val password: String = m!!.quitarEspacios(binding.passwordInput.text.toString())
 
             if (password.isNotEmpty()) {
 
@@ -48,22 +49,26 @@ class LoginFragment : Fragment() {
                     m.checkUserMode()
                     m.replaceFragment(ProfesorFragment(), 1)
 
-                } else {
+                }//if (password == "123456Aa")
+
+                else {
 
                     Toast.makeText(requireContext(), R.string.logError, Toast.LENGTH_SHORT).show()
 
-                }
+                }//if (password != "123456Aa")
 
-            } else {
+            }//if (password.isNotEmpty())
+
+            else {
 
                 Toast.makeText(requireContext(), R.string.noContra, Toast.LENGTH_SHORT).show()
 
-            }
+            }//if (!password.isNotEmpty())
 
-        }//onClick
+        }//onClick()
 
         return binding.root
 
-    }//onCreateView (inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View?
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
 
 }//LoginFragment()

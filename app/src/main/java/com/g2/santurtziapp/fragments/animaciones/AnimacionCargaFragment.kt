@@ -27,6 +27,7 @@ class AnimacionCargaFragment : Fragment() {
         val m: MainActivity? = activity as MainActivity?
         db = DB(requireContext(), "db", null, 1)
 
+        //RECOGER TODAS LAS PARTIDAS DE LA COLECCIÓN FB
         fb.collection("Partida")
             .get()
             .addOnSuccessListener { i ->
@@ -43,10 +44,16 @@ class AnimacionCargaFragment : Fragment() {
 
                 m?.replaceFragment(RankingFragment(), 1)
 
-            }.addOnFailureListener { Exception->
-                Toast.makeText(requireContext(), "$Exception", Toast.LENGTH_SHORT).show() }
+            }//onSuccess
+
+            .addOnFailureListener { Exception->
+
+                Toast.makeText(requireContext(), "$Exception", Toast.LENGTH_SHORT).show()
+
+            }//onFailure
 
         return inflater.inflate(R.layout.fragment_animacion_carga, container, false)
-    }
 
-}
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View?
+
+}//AnimacionCargaFragment()

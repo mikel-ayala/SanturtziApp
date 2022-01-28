@@ -36,12 +36,13 @@ class ExplicacionJuegoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentExplicacionJuegoBinding.inflate(layoutInflater)
 
         return binding.root
-    }
+
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,8 +50,9 @@ class ExplicacionJuegoFragment : Fragment() {
         val j: JuegoActivity? = activity as JuegoActivity?
         val lugar = j?.checkPuntoPartida(SharedApp.puntopartida.Partida)
 
-        var heightDp = resources.displayMetrics.run { heightPixels / density }
+        val heightDp = resources.displayMetrics.run { heightPixels / density }
 
+        //DIALOGO PARA IR AL MAPA
         val alertDialog: AlertDialog? = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -73,31 +75,36 @@ class ExplicacionJuegoFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Juego_Hasiera)
                         dialog.dismiss()
-                    })
+
+                    })//setPositiveButton()
+
                 setNegativeButton(R.string.menu_cerrar,
                     DialogInterface.OnClickListener { dialog, id ->
 
                         dialog.dismiss()
 
-                    })
-            }
+                    })//setNegativeButton()
+
+            }//builder
 
             builder.create()
-        }
 
+        }//alertDialog
+
+        //OVERRIDE DE EL ONBACKPRESSED DE LA ACTIVITY
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
                 alertDialog?.show()
 
-            }
+            }//onBackPressed()
 
-        })
+        })//callback(viewLifecycleOwner, object : OnBackPressedCallback(true)
 
         binding.juegoLugar.text = lugar!![0]
         j.disableOrEnableButton(binding.juegoNext, true)
 
-        when(SharedApp.puntopartida.Partida){
+        when (SharedApp.puntopartida.Partida) {
 
             "1" -> {
 
@@ -124,10 +131,13 @@ class ExplicacionJuegoFragment : Fragment() {
                         Handler().postDelayed(Runnable {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
-                    }
-                }
 
-            }
+                    }//if (result != null && result == "yes")
+
+                }//FragmentResultListener
+
+            }//1
+
             "2" -> {
 
                 j.replaceFragment(Juego2Fragment(), 2)
@@ -153,10 +163,13 @@ class ExplicacionJuegoFragment : Fragment() {
                         Handler().postDelayed(Runnable {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
-                    }
-                }
 
-            }
+                    }//if (result != null && result == "yes")
+
+                }//FragmentResultListener
+
+            }//2
+
             "3" -> {
 
                 j.replaceFragment(Juego3Fragment(), 2)
@@ -174,8 +187,9 @@ class ExplicacionJuegoFragment : Fragment() {
 
                         j.disableOrEnableButton(binding.juegoNext, false)
 
-                    }
-                }
+                    }//if (result != null && result == "yes")
+
+                }//FragmentResultListener
 
                 binding.juegoNext.setOnClickListener {
 
@@ -197,9 +211,10 @@ class ExplicacionJuegoFragment : Fragment() {
                         Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                     }, 500)
 
-                }
+                }//onClick()
 
-            }
+            }//3
+
             "4" -> {
 
                 j.replaceFragment(Juego4Fragment(), 2)
@@ -229,10 +244,12 @@ class ExplicacionJuegoFragment : Fragment() {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
 
-                    }
-                }
+                    }//if (result != null && result == "yes")
 
-            }
+                }//FragmentResultListener
+
+            }//4
+
             "5" -> {
 
                 j.replaceFragment(Juego5Fragment(), 2)
@@ -261,10 +278,13 @@ class ExplicacionJuegoFragment : Fragment() {
                         Handler().postDelayed(Runnable {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
-                    }
-                }
 
-            }
+                    }//if (result != null && result == "yes")
+
+                }//FragmentResultListener
+
+            }//5
+
             "6" -> {
 
                 j.replaceFragment(Juego6Fragment(), 2)
@@ -294,10 +314,12 @@ class ExplicacionJuegoFragment : Fragment() {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
 
-                    }
-                }
+                    }//if (result != null && result == "yes")
 
-            }
+                }//FragmentResultListener
+
+            }//6
+
             "7" -> {
 
                 j.replaceFragment(Juego7Fragment(), 2)
@@ -326,10 +348,13 @@ class ExplicacionJuegoFragment : Fragment() {
                         Handler().postDelayed(Runnable {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
-                    }
-                }
 
-            }
+                    }//if (result != null && result == "yes")
+
+                }//FragmentResultListener
+
+            }//7
+
             "8" -> {
 
                 j.replaceFragment(Juego8Fragment(), 2)
@@ -358,15 +383,18 @@ class ExplicacionJuegoFragment : Fragment() {
                         Handler().postDelayed(Runnable {
                             Navigation.findNavController(view).navigate(R.id.action_Juego_Final)
                         }, 500)
-                    }
-                }
 
-            }
+                    }//if (result != null && result == "yes")
 
-        }
+                }//FragmentResultListener
 
-    }
+            }//8
 
+        }//when (SharedApp.puntopartida.Partida)
+
+    }//onViewCreated(view: View, savedInstanceState: Bundle?)
+
+    //EXPLICACIONES ANIMADAS
     fun TextView.typeWrite(lifecycleOwner: LifecycleOwner, text: String, intervalMs: Long, juego: JuegoActivity) {
 
         this@typeWrite.text = ""
@@ -374,7 +402,8 @@ class ExplicacionJuegoFragment : Fragment() {
         if(::routine.isInitialized){
 
             routine.cancel()
-        }
+
+        }//if(::routine.isInitialized)
 
         lifecycleOwner.lifecycleScope.launch {
 
@@ -383,37 +412,47 @@ class ExplicacionJuegoFragment : Fragment() {
                 delay(intervalMs)
                 this@typeWrite.text = text.take(it + 1)
 
-            }
+            }//repeat(text.length)
 
-        }
-    }
+        }//launch
 
+    }//TextView.typeWrite(lifecycleOwner: LifecycleOwner, text: String, intervalMs: Long, juego: JuegoActivity)
+
+    //REPRODUCIR AUDIOS DE LAS EXPLICACIONES
     fun audio(audio: String) {
 
         if (::mp.isInitialized) {
 
             mp.stop()
 
-        }
+        }//if (::mp.isInitialized)
 
         mp = MediaPlayer.create(requireContext(), audio.toInt())
 
         mp.start()
 
-    }
+    }//audio(audio: String)
 
     override fun onPause() {
         super.onPause()
-        if (::mp.isInitialized){
+
+        if (::mp.isInitialized) {
+
             mp.stop()
-        }
-    }
+
+        }//if (::mp.isInitialized)
+
+    }//onPause()
 
     override fun onDestroy() {
         super.onDestroy()
-        if (::mp.isInitialized){
-            mp.stop()
-        }
-    }
 
-}
+        if (::mp.isInitialized) {
+
+            mp.stop()
+
+        }//if (::mp.isInitialized)
+
+    }//onDestroy()
+
+}//ExplicacionJuegoFragment()

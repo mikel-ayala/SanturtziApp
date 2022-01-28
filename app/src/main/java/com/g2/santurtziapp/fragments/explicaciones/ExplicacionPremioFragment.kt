@@ -11,53 +11,69 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.g2.santurtziapp.R
 import com.g2.santurtziapp.SharedApp
+import com.g2.santurtziapp.databinding.FragmentExplicacionPremioBinding
 
 class ExplicacionPremioFragment : Fragment() {
 
     lateinit var cofreanimation: AnimationDrawable
     private lateinit var vistaanimada: Animation
+    lateinit var binding: FragmentExplicacionPremioBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explicacion_premio, container, false)
-    }
+    ): View {
+
+        binding = FragmentExplicacionPremioBinding.inflate(layoutInflater)
+
+        return binding.root
+
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //creamos la animacion del cofre
-        val img= view.findViewById<ImageView>(R.id.imgcofre)
-        if (img != null) {
-            animacion_cofre(img)
-        }
-        //Ejecutamos la animacion de la moneda
-        val moneda= view.findViewById<ImageView>(R.id.imgmoneda)
 
-        if (moneda != null) {
-            when(SharedApp.puntopartida.Partida){
-                "1" -> moneda.setImageResource(R.drawable.monedam)
-                "2" -> moneda.setImageResource(R.drawable.monedae)
-                "3" -> moneda.setImageResource(R.drawable.monedak)
-                "4" -> moneda.setImageResource(R.drawable.monedau)
-                "5" -> moneda.setImageResource(R.drawable.monedaa)
-                "6" -> moneda.setImageResource(R.drawable.monedam)
-                "7" -> moneda.setImageResource(R.drawable.monedae)
-            }
-            vistaanimada= AnimationUtils.loadAnimation(requireContext(),
-                R.anim.view_animacion)
-            moneda.startAnimation(vistaanimada)
-        }
+        animacion_cofre(binding.imgcofre)
 
-    }
-    //funcion para animar el cofre
-    fun animacion_cofre(imagen: ImageView){
+        val moneda= binding.imgmoneda
+
+        when (SharedApp.puntopartida.Partida) {
+
+            "1" -> moneda.setImageResource(R.drawable.monedam)
+
+            "2" -> moneda.setImageResource(R.drawable.monedae)
+
+            "3" -> moneda.setImageResource(R.drawable.monedak)
+
+            "4" -> moneda.setImageResource(R.drawable.monedau)
+
+            "5" -> moneda.setImageResource(R.drawable.monedaa)
+
+            "6" -> moneda.setImageResource(R.drawable.monedam)
+
+            "7" -> moneda.setImageResource(R.drawable.monedae)
+
+        }//when (SharedApp.puntopartida.Partida)
+
+        vistaanimada= AnimationUtils.loadAnimation(requireContext(),
+            R.anim.view_animacion)
+
+        moneda.startAnimation(vistaanimada)
+
+    }//onViewCreated(view: View, savedInstanceState: Bundle?)
+
+    //ANIMACIÓN DEL COFRE
+    fun animacion_cofre(imagen: ImageView) {
+
         imagen.apply {
+
             setBackgroundResource(R.drawable.animation)
             cofreanimation = background as AnimationDrawable
-        }
-        cofreanimation.start()
-    }
 
-}
+        }//apply
+
+        cofreanimation.start()
+
+    }//animacion_cofre(imagen: ImageView)
+
+}//ExplicacionPremioFinal()

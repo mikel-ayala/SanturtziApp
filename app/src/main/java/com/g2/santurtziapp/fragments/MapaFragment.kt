@@ -33,7 +33,6 @@ import com.google.android.gms.maps.model.*
 
 class MapaFragment : Fragment() {
 
-    //Durante este fragment van a aparecer tres lineas marcadas como error pero que funcionan bien  (es un error de AS)
     private lateinit var fusedLocation: FusedLocationProviderClient
     lateinit var binding: FragmentMapaBinding
     lateinit var googleMap: GoogleMap
@@ -42,74 +41,60 @@ class MapaFragment : Fragment() {
     @SuppressLint("MissingPermission")
 
     private val callback = OnMapReadyCallback { GoogleMap ->
-        googleMap=GoogleMap
 
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
+        googleMap = GoogleMap
 
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
-        //Solicitud de permisos
+        if (!SharedApp.modolibre.modo) {
 
-        //Configuración del mapa
-        /*
-        *
-        Error 1
-        *
-         */
-        if (!SharedApp.modolibre.modo){
             googleMap.isMyLocationEnabled=true
             googleMap.uiSettings.isMyLocationButtonEnabled = false
             googleMap.uiSettings.isCompassEnabled=false
-        }
 
-        //Generar marcadores y ubicar la cámara
+        }//if (!SharedApp.modolibre.modo)
+
         paradas.forEach {
             val marcador= googleMap.addMarker(MarkerOptions().position(it))
+
             if (marcador != null) {
+
                 marcadores.add(marcador)
-            }
-        }
-        if (!SharedApp.modolibre.modo||SharedApp.tipousu.tipo=="alumno"){
+
+            }//if (marcador != null)
+
+        }//forEach
+
+        if (!SharedApp.modolibre.modo || SharedApp.tipousu.tipo == "alumno") {
+
             cambiarMarcador(SharedApp.puntopartida.Partida.toInt())
-        }
+
+        }//if (!SharedApp.modolibre.modo || SharedApp.tipousu.tipo == "alumno")
 
         when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+
             Configuration.UI_MODE_NIGHT_NO -> {
+
                 googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                         requireContext(),
                         R.raw.styleday
                     )
                 )
-            } // Night mode is not active, we're using the light theme
+
+            }
+
             Configuration.UI_MODE_NIGHT_YES -> {
+
                 googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
                         requireContext(),
                         R.raw.stylenight
                     )
                 )
-            } // Night mode is active, we're using dark theme
-        }
 
-        /*
-        *
-        Error 2
-        *
-         */
+            }
+
+        }//when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK)
+
         if(!SharedApp.modolibre.modo){
             fusedLocation.lastLocation.addOnSuccessListener {
                 if (it!=null){
@@ -176,13 +161,6 @@ class MapaFragment : Fragment() {
 
         binding.UbicacionButton.setOnClickListener {
 
-
-            /*
-
-            *
-            Error 3
-            *
-            */
             if(!SharedApp.modolibre.modo) {
                 fusedLocation.lastLocation.addOnSuccessListener {
                     ubicacion = LatLng(it.latitude, it.longitude)

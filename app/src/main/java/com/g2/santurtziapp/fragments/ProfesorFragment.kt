@@ -21,10 +21,11 @@ class ProfesorFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentProfesorBinding.inflate(layoutInflater)
 
+        //DIALOGO PARA SALIR DE LA APP
         val alertDialog: AlertDialog? = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -35,42 +36,52 @@ class ProfesorFragment : Fragment() {
 
                         activity?.finish()
                         dialog.dismiss()
-                    })
+
+                    })//setPositiveButton()
+
                 setNegativeButton(R.string.menu_cerrar,
                     DialogInterface.OnClickListener { dialog, id ->
 
                         dialog.dismiss()
 
-                    })
-            }
+                    })//setNegativeButton()
+
+            }//builder
 
             builder.create()
-        }
 
+        }//alertDialog
+
+        //OVERRIDE DE EL ONBACKPRESSED DE LA ACTIVITY
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
                 alertDialog?.show()
 
-            }
+            }//onBackPressed()
 
-        })
+        })//callback(viewLifecycleOwner, object : OnBackPressedCallback(true)
 
         binding.btnGuiado.setOnClickListener(){
             SharedApp.modolibre.modo = false
             SharedApp.puntopartida.Partida = "1"
+
             startActivity(Intent(requireContext(), JuegoActivity::class.java))
             activity?.finish()
-        }
+
+        }//onClick()
 
         binding.btnLibre.setOnClickListener(){
             SharedApp.modolibre.modo = true
             SharedApp.puntopartida.Partida = "1"
+
             startActivity(Intent(requireContext(), JuegoActivity::class.java))
             activity?.finish()
-        }
+
+        }//onClick()
 
         return binding.root
-    }
 
-}
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
+
+}//ProfesorFragment()

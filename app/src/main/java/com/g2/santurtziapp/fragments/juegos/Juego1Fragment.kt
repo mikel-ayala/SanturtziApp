@@ -236,9 +236,12 @@ class Juego1Fragment : Fragment() {
                     path.lineTo(offsetX.toFloat(), pieceBitmap.height.toFloat())
                 }
                 if (col == 0) {
-                    // lado izqiuerdo de la pieza
+
                     path.close()
-                } else {
+
+                }//if (col == 0)
+
+                else {
                     // left bump
                     path.lineTo(
                         offsetX.toFloat(),
@@ -253,21 +256,28 @@ class Juego1Fragment : Fragment() {
                         (offsetY + (pieceBitmap.height - offsetY) / 3).toFloat()
                     )
                     path.close()
-                }
+
+                }//if (col != 0)
 
                 // mascara de la pieza
                 val paint = Paint()
+
                 paint.color = -0x1000000
                 paint.style = Paint.Style.FILL
+
                 canvas.drawPath(path, paint)
+
                 paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+
                 canvas.drawBitmap(pieceBitmap, 0f, 0f, paint)
 
                 // dibujamos borde nblanco
                 var border = Paint()
+
                 border.color = -0x7f000001
                 border.style = Paint.Style.STROKE
                 border.strokeWidth = 8.0f
+
                 canvas.drawPath(path, border)
 
                 // dibujamos borde negro de la pieza
@@ -275,20 +285,30 @@ class Juego1Fragment : Fragment() {
                 border.color = -0x80000000
                 border.style = Paint.Style.STROKE
                 border.strokeWidth = 3.0f
+
                 canvas.drawPath(path, border)
 
                 // Seleccionar el Bitmap resultante de la pieza
                 piece.setImageBitmap(puzzlePiece)
                 pieces.add(piece)
+
                 xCoord += pieceWidth
+
             }
+
             yCoord += pieceHeight
+
         }
+
         return pieces
+
     }
 
+
     private fun getBitmapPositionInsideImageView(imageView: ImageView?): IntArray {
+
         val ret = IntArray(4)
+
         if (imageView == null || imageView.drawable == null) return ret
 
         // Obtener la dimension de la imagen
@@ -308,28 +328,35 @@ class Juego1Fragment : Fragment() {
         // Calcular las dimensiones actuales
         val actW = (origW * scaleX).roundToInt()
         val actH = (origH * scaleY).roundToInt()
+
         ret[2] = actW
         ret[3] = actH
 
         // Obtener la posicion de la imagen
-        // Suponemos que la imagen está centrada en ImageView
         val imgViewW = imageView.width
         val imgViewH = imageView.height
         val top = (imgViewH - actH) / 2
         val left = (imgViewW - actW) / 2
+
         ret[0] = left
         ret[1] = top
-        return ret
-    }
 
-    fun checkGameOver()  {
+        return ret
+
+    }//getBitmapPositionInsideImageView(imageView: ImageView?): IntArray
+
+    //COMPROBAR SI HA TERMINADO
+    fun checkGameOver() {
+
         if (isGameOver) {
-            //Meter aqui lo que cargara cuando se complete el juego
+
             MediaPlayer.create(requireContext(), R.raw.ondo).start()
 
             setFragmentResult("juego1", bundleOf("terminado" to "yes"))
-        }
-    }
+
+        }//if (isGameOver)
+
+    }//checkGameOver()
 
     private val isGameOver: Boolean
         get() {
@@ -340,4 +367,5 @@ class Juego1Fragment : Fragment() {
             }
             return true
         }
-}
+
+}//Juego1Fragment()

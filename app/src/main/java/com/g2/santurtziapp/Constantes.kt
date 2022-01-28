@@ -7,7 +7,8 @@ import com.google.android.gms.maps.model.LatLng
 
 object Constantes {
 
-    internal class TipoUsu (context: Context) {
+    //CLASES PARA LA SHAREDAPP
+    internal class TipoUsu(context: Context) {
         val PREFS_NAME = "com.g2.santurtziapp.sharedpreferences"
         val SHARED_NAME = "Tipo"
         val name: SharedPreferences = context.getSharedPreferences(PREFS_NAME, 0)
@@ -16,8 +17,10 @@ object Constantes {
             get() = name.getString(SHARED_NAME, "alumno").toString()
             //modificamos el valor de shared preferences
             set(value) = name.edit().putString(SHARED_NAME, value).apply()
-    }
-    internal class User (context: Context) {
+
+    }//TipoUsu(context: Context)
+
+    internal class User(context: Context) {
         val PREFS_NAME = "com.g2.santurtziapp.sharedpreferences.User"
         val SHARED_NAME = "User"
         val User: SharedPreferences = context.getSharedPreferences(PREFS_NAME, 0)
@@ -26,8 +29,10 @@ object Constantes {
             get() = User.getString(SHARED_NAME, "").toString()
             //modificamos el valor de shared preferences
             set(value) = User.edit().putString(SHARED_NAME, value).apply()
-    }
-    internal class PuntoPartida (context: Context) {
+
+    }//User(context: Context)
+
+    internal class PuntoPartida(context: Context) {
         val PREFS_NAME = "com.g2.ago.santurtziapp.PuntoPartida"
         val SHARED_NAME = "Partida"
         val PuntoPartida: SharedPreferences = context.getSharedPreferences(PREFS_NAME, 0)
@@ -36,8 +41,10 @@ object Constantes {
             get() = PuntoPartida.getString(SHARED_NAME, "").toString()
             //modificamos el valor de shared preferences
             set(value) = PuntoPartida.edit().putString(SHARED_NAME, value).apply()
-    }
-    internal class ModoLibre(context: Context)  {
+
+    }//PuntoPartida(context: Context)
+
+    internal class ModoLibre(context: Context) {
         val PREFS_NAME = "com.g2.santurtziapp.sharedpreferences"
         val SHARED_NAME = "Modo"
         val name: SharedPreferences = context.getSharedPreferences(PREFS_NAME, 0)
@@ -46,21 +53,29 @@ object Constantes {
             get() = name.getBoolean(SHARED_NAME, false)
             //modificamos el valor de shared preferences
             set(value) = name.edit().putBoolean(SHARED_NAME, value).apply()
-    }
 
-    class PuzzlePiece(context: Context?) : AppCompatImageView(context!!) {
+    }//ModoLibre(context: Context)
+
+    //PIEZAS DEL PUZZLE
+    class PuzzlePiece(context: Context?): AppCompatImageView(context!!) {
+
         var xCoord = 0
         var yCoord = 0
         var pieceWidth = 0
         var pieceHeight = 0
         var canMove = true
-    }
+
+    }//PuzzlePiece(context: Context?): AppCompatImageView(context!!)
+
+    //CARTA DEL MEMORYCARD
     data class MemoryCard(val identifier: Int, var isFaceUp: Boolean = false, var isMatched: Boolean = false)
 
+    //PARTIDA
     data class Partida(var apodo: String, var punto: String)
 
     const val TAG = "Juego2Fragment"
 
+    //COORDENADAS DE LOS PUNTOS DE INTERÉS
     private val parada1: LatLng = LatLng(43.330306, -3.029750)
     private val parada2: LatLng = LatLng(43.330611, -3.030861)
     private val parada3: LatLng = LatLng(43.330778, -3.031583)
@@ -70,10 +85,7 @@ object Constantes {
     private val parada7: LatLng = LatLng(43.334417, -3.039278)
     internal val paradas: List<LatLng> = listOf(parada1, parada2, parada3, parada4, parada5, parada6, parada7)
 
-    internal const val redMarker: Int = R.drawable.red_marker
-    internal const val greenMarker: Int = R.drawable.green_marker
-    internal const val grayMarker: Int = R.drawable.gray_marker
-
+    //ICONO DEL PERFIL DEL USUARIO
     private const val guestAmarillo: Int = R.drawable.guest_amarillo
     private const val guestAzul: Int = R.drawable.guest_azul
     private const val guestMorado: Int = R.drawable.guest_morado
@@ -82,4 +94,4 @@ object Constantes {
     private const val guestVerde: Int = R.drawable.guest_verde
     internal val guests: List<Int> = listOf(guestAmarillo, guestAzul, guestMorado, guestNaranja, guestRojo, guestVerde)
 
-}
+}//Constantes

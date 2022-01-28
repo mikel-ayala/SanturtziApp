@@ -25,7 +25,7 @@ class MainActivity : DrawerActivity() {
 
         //COMPROBAR PERMISOS DE LOCALIZACIÓN
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED){
+            != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),1)
 
@@ -35,9 +35,9 @@ class MainActivity : DrawerActivity() {
 
             }, 2000)
 
-        }//if !PERMISSION_GRANTED
+        }//if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
 
-        var fr = intent.extras
+        val fr = intent.extras
 
         SharedApp.modolibre.modo = false
 
@@ -55,31 +55,31 @@ class MainActivity : DrawerActivity() {
 
                         replaceFragment(ProfesorFragment(), 1)
 
-                    }//fr == null && is profesor
+                    }//if (SharedApp.tipousu.tipo == "profesor")
 
                     else {
 
                         replaceFragment(PartidasFragment(), 1)
 
-                    }//fr == null && is alumno
+                    }//if (!SharedApp.tipousu.tipo == "profesor")
 
                 }//else
 
             }//when(fr.get("fragment"))
 
-        }//if fr != null
+        }//if (fr != null)
 
         else if (SharedApp.tipousu.tipo == "profesor") {
 
             replaceFragment(ProfesorFragment(), 1)
 
-        }//fr == null && is profesor
+        }//else if (SharedApp.tipousu.tipo == "profesor")
 
         else {
 
             replaceFragment(PartidasFragment(), 1)
 
-        }//fr == null && is alumno
+        }//if (!SharedApp.tipousu.tipo == "profesor")
 
     }//onCreate(savedInstanceState: Bundle?)
 

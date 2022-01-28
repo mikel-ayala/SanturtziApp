@@ -35,6 +35,7 @@ class JuegoActivity : DrawerActivity() {
             var value = it.animatedValue
             view.layoutParams.height = value as Int
             view.requestLayout();
+
         }//updateListener
 
         var animationSet = AnimatorSet()
@@ -68,7 +69,6 @@ class JuegoActivity : DrawerActivity() {
         when(punto) {
 
             "0" -> {
-
 
                 nombre = getString(R.string.app_name)
 

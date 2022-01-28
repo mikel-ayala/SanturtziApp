@@ -42,6 +42,7 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         button = drawerLayout.findViewById(R.id.MenuButton)
         menu = navigationView.menu
 
+        //DIALOGO PARA SALIR DE LA APP
         alertDialog = this.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -52,17 +53,21 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
 
                         finishAffinity()
                         exitProcess(0)
-                    })
+
+                    })//setPositiveButton()
+
                 setNegativeButton(R.string.menu_cerrar,
                     DialogInterface.OnClickListener { dialog, id ->
 
                         dialog.dismiss()
 
-                    })
-            }
+                    })//setNegativeButton()
+
+            }//builder
 
             builder.create()
-        }
+
+        }//alertDialog
 
         if (SharedApp.users.user == ""){
 
@@ -71,6 +76,7 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
             navigationView.getHeaderView(0).findViewById<TextView>(R.id.headerPunto).text = ""
 
         }//is not logged
+
         else if (SharedApp.users.user.length != 1){
 
             navigationView.getHeaderView(0).findViewById<TextView>(R.id.headerApodo).text = SharedApp.users.user
@@ -81,8 +87,9 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         checkUserMode()
 
         button.setOnClickListener(){
-            drawerLayout.openDrawer(GravityCompat.START);
-        }//onClick
+            drawerLayout.openDrawer(GravityCompat.START)
+
+        }//onClick()
 
         navigationView.bringToFront()
 
@@ -100,84 +107,129 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         when(activityName){
 
             "com.g2.santurtziapp.activitidades.MainActivity" -> {
+
                 when(item.itemId){
+
                     R.id.nav_inicio -> {
+
                         if (SharedApp.tipousu.tipo == "profesor"){
 
                             fragment = ProfesorFragment()
                             replaceFragment(fragment, 1)
 
-                        }//is profesor
+                        }//if (SharedApp.tipousu.tipo == "profesor")
+
                         else{
 
                             fragment = PartidasFragment()
                             replaceFragment(fragment, 1)
 
-                        }//is alumno
+                        }//if (!SharedApp.tipousu.tipo == "profesor")
+
                     }//inicio
+
                     R.id.nav_ranking -> {
+
                         fragment = AnimacionCargaFragment()
                         replaceFragment(fragment, 1)
+
                     }//ranking
+
                     R.id.nav_quienes -> {
+
                         fragment = NosotrosFragment()
                         replaceFragment(fragment, 1)
+
                     }//quienes
                     R.id.nav_profe -> {
+
                         fragment = LoginFragment()
                         replaceFragment(fragment, 1)
+
                     }//profe
+
                     R.id.nav_cerrar_sesion -> {
+
                         SharedApp.users.user = ""
                         SharedApp.puntopartida.Partida = ""
                         SharedApp.tipousu.tipo = "alumno"
+
                         checkUserMode()
+
                         navigationView.getHeaderView(0).findViewById<TextView>(R.id.headerApodo).text = getString(R.string.invitado)
                         navigationView.getHeaderView(0).findViewById<TextView>(R.id.headerPunto).text = ""
+
                         fragment = PartidasFragment()
                         replaceFragment(fragment, 1)
+
                     }//cerrar_sesion
+
                     R.id.nav_salir -> {
+
                         alertDialog.show()
+
                     }//salir
 
                 }//when(item.itemId)
+
             }//MainActivity
+
             "com.g2.santurtziapp.activitidades.JuegoActivity" -> {
+
                 val intent = Intent(this, MainActivity::class.java)
+
                 when(item.itemId){
 
                     R.id.nav_inicio -> {
+
                         startActivity(intent)
                         finish()
+
                     }//inicio
+
                     R.id.nav_ranking -> {
-                       intent.putExtra("fragment", "AnimacionCargaFragment()")
+
+                        intent.putExtra("fragment", "AnimacionCargaFragment()")
                         startActivity(intent)
                         finish()
+
                     }//ranking
+
                     R.id.nav_quienes -> {
+
                         intent.putExtra("fragment", "NosotrosFragment()")
                         startActivity(intent)
                         finish()
+
                     }//quienes
+
                     R.id.nav_profe -> {
+
                         intent.putExtra("fragment", "LoginFragment()")
                         startActivity(intent)
                         finish()
+
                     }//profe
+
                     R.id.nav_cerrar_sesion -> {
+
                         SharedApp.users.user = ""
                         SharedApp.puntopartida.Partida = ""
                         SharedApp.tipousu.tipo = "alumno"
+
                         startActivity(intent)
                         finish()
+
                     }//cerrar_sesion
+
                     R.id.nav_salir -> {
+
                         alertDialog.show()
+
                     }//salir
 
                 }//when(item.itemId)
+
             }//JuegoActivity
 
         }//when(activityName)
@@ -205,13 +257,21 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
         when(f){
 
             1 -> {
+
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentMain, fragment).commit()
+
             }//1
+
             2 -> {
+
                 supportFragmentManager.beginTransaction().replace(R.id.fragment1Juego, fragment).commit()
+
             }//2
+
             3 -> {
+
                 supportFragmentManager.beginTransaction().replace(R.id.fragment2Juego, fragment).commit()
+
             }//3
 
         }//when(f)
@@ -227,15 +287,15 @@ open class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItem
             menu.findItem(R.id.nav_ranking).isVisible = true
             menu.findItem(R.id.nav_cerrar_sesion).isVisible = true
 
-        }//is profesor
-        else if (SharedApp.tipousu.tipo == "alumno"){
+        }//if (SharedApp.tipousu.tipo == "profesor")
+
+        else {
 
             menu.findItem(R.id.nav_profe).isVisible = true
             menu.findItem(R.id.nav_ranking).isVisible = false
             menu.findItem(R.id.nav_cerrar_sesion).isVisible = false
 
-
-        }//is alumno
+        }//if (!SharedApp.tipousu.tipo == "profesor")
 
     }//checkUserMode()
 

@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.g2.santurtziapp.Constantes
@@ -24,7 +22,6 @@ import kotlinx.android.synthetic.main.partida.view.*
 import kotlin.random.Random
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.navigation.Navigation
 import com.g2.santurtziapp.activitidades.MainActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -40,12 +37,13 @@ class PartidasFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentPartidasBinding.inflate(layoutInflater)
 
         m = activity as MainActivity
 
+        //DIALOGO PARA SALIR DE LA APP
         val alertDialog: AlertDialog? = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -56,31 +54,37 @@ class PartidasFragment : Fragment() {
 
                         m!!.finish()
                         dialog.dismiss()
-                    })
+
+                    })//setPositiveButton()
+
                 setNegativeButton(R.string.menu_cerrar,
                     DialogInterface.OnClickListener { dialog, id ->
 
                         dialog.dismiss()
 
-                    })
-            }
+                    })//setNegativeButton()
+
+            }//builder
 
             builder.create()
-        }
 
+        }//alertDialog
+
+        //OVERRIDE DE EL ONBACKPRESSED DE LA ACTIVITY
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
                 alertDialog?.show()
 
-            }
+            }//onBackPressed()
 
-        })
+        })//callback(viewLifecycleOwner, object : OnBackPressedCallback(true)
 
         db = DB(requireContext(), "db", null, 1)
 
         configureView()
 
+        //NUEVA PARTIDA
         binding.nuevaPButton.setOnClickListener{
 
             SharedApp.modolibre.modo = false
@@ -99,7 +103,9 @@ class PartidasFragment : Fragment() {
 
                                 Toast.makeText(requireContext(), R.string.existe, Toast.LENGTH_SHORT).show()
 
-                            } else {
+                            }//if (it.exists())
+
+                            else {
 
                                 SharedApp.users.user = apodo.uppercase()
                                 SharedApp.puntopartida.Partida = "0"
@@ -109,73 +115,89 @@ class PartidasFragment : Fragment() {
                                 startActivity(Intent(requireContext(), JuegoActivity::class.java))
                                 m!!.finish()
 
-                            }
+                            }//if (!it.exists())
 
-                        } .addOnFailureListener {
+                        }//onSuccess
+
+                        .addOnFailureListener {
 
                             Toast.makeText(requireContext(), R.string.failFB, Toast.LENGTH_SHORT).show()
 
-                        }
+                        }//onFailure
 
-                } else {
+                }//if (db.cargarPartida(apodo.uppercase()) == null)
+
+                else {
 
                     Toast.makeText(requireContext(), R.string.existe, Toast.LENGTH_SHORT).show()
 
-                }
+                }//if (db.cargarPartida(apodo.uppercase()) != null)
 
-            } else {
+            }//if (apodo.isNotEmpty() && apodo.length > 2)
+
+            else {
 
                 Toast.makeText(requireContext(), R.string.noApodo, Toast.LENGTH_SHORT).show()
 
-            }
+            }//if ((!apodo.isNotEmpty()) && (!apodo.length > 2))
 
             binding.apodoInput.text = null
 
-        }
+        }//onClick()
 
         return binding.root
-    }
+
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
 
     override fun onDestroy() {
         db.close()
         super.onDestroy()
-    }
 
-    private fun configureView(){
+    }//onDestroy()
+
+    private fun configureView() {
+
         setUpRecyclerView(db.cargarPartidas())
-    }
-    private fun setUpRecyclerView(partidas : ArrayList<Constantes.Partida>){
 
-        adapter = PartidasAdapter(partidas, requireContext(), db, m)
+    }//configureView()
+
+    private fun setUpRecyclerView(partidas : ArrayList<Constantes.Partida>) {
+
+        adapter = PartidasAdapter(partidas, requireContext(), m)
+
         binding.partidasLayout.setHasFixedSize(true)
         binding.partidasLayout.layoutManager = LinearLayoutManager(activity)
         binding.partidasLayout.adapter = adapter
-    }
 
-    class PartidasAdapter(private val partidas: ArrayList<Constantes.Partida>, context: Context, db: DB, mainActivity: MainActivity?) :
+    }//setUpRecyclerView(partidas : ArrayList<Constantes.Partida>)
+
+    //GENERAR LAS PARTIDAS LOCALES
+    class PartidasAdapter(private val partidas: ArrayList<Constantes.Partida>, val context: Context, mainActivity: MainActivity?) :
         RecyclerView.Adapter<PartidasAdapter.ViewHolder>() {
 
-        val db: DB = db
-        val context: Context = context
         val m = mainActivity
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-            fun bind(partida: Constantes.Partida){
+            fun bind(partida: Constantes.Partida) {
 
                 itemView.apodoPartidaR.text = partida.apodo
-                if (partida.punto == "9"){
 
-                    itemView.puntoPartidaR.text = "FINALIZADO"
+                if (partida.punto == "9") {
 
-                } else {
+                    itemView.puntoPartidaR.text = R.string.finish.toString()
+
+                }//if (partida.punto == "9")
+
+                else {
 
                     itemView.puntoPartidaR.text = partida.punto
 
-                }
+                }//if (partida.punto != "9")
+
                 itemView.avatarPartidaR.setImageResource(guests[Random.nextInt(0, 5)])
 
-                if(partida.punto < "9"){
+                if(partida.punto < "9") {
 
                     itemView.setOnClickListener{
 
@@ -186,13 +208,13 @@ class PartidasFragment : Fragment() {
                         m?.startActivity(Intent(context, JuegoActivity::class.java))
                         m?.finish()
 
-                    }
+                    }//onClick()
 
-                }
+                }//if(partida.punto < "9")
 
-            }
+            }//bind(partida: Constantes.Partida)
 
-        }
+        }//ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
 
@@ -201,15 +223,17 @@ class PartidasFragment : Fragment() {
 
             return ViewHolder(view)
 
-        }
+        }//onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val item = db.cargarPartidas()[position]
+
+            val item = partidas[position]
             viewHolder.bind(item)
-        }
 
-        override fun getItemCount() = db.cargarPartidas().size
+        }//onBindViewHolder(viewHolder: ViewHolder, position: Int)
 
-    }
+        override fun getItemCount() = partidas.size
 
-}
+    }//PartidasAdapter(private val partidas: ArrayList<Constantes.Partida>, val context: Context,val db: DB, mainActivity: MainActivity?) :RecyclerView.Adapter<PartidasAdapter.ViewHolder>()
+
+}//PartidasFragment()

@@ -27,7 +27,7 @@ class RankingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentRankingBinding.inflate(layoutInflater)
 
@@ -37,46 +37,51 @@ class RankingFragment : Fragment() {
 
         val m = activity as MainActivity?
 
+        //OVERRIDE DE EL ONBACKPRESSED DE LA ACTIVITY
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
-                m?.replaceFragment(if (SharedApp.tipousu.tipo=="profesor"){ProfesorFragment()}else{PartidasFragment()}, 1)
+                m?.replaceFragment(if (SharedApp.tipousu.tipo=="profesor") {ProfesorFragment()}else{PartidasFragment()}, 1)
 
-            }
+            }//onBackPressed()
 
-        })
+        })//callback(viewLifecycleOwner, object : OnBackPressedCallback(true)
 
         return binding.root
-    }
 
-    private fun configureView(){
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
+
+
+    //GENERAR EL RANKING
+    private fun configureView() {
+
         setUpRecyclerView(db.cargarRanking())
-    }
-    private fun setUpRecyclerView(partidas : ArrayList<Constantes.Partida>){
 
-        adapter = RankingAdapter(partidas, requireContext(), db)
+    }//configureView()
+
+    private fun setUpRecyclerView(partidas : ArrayList<Constantes.Partida>) {
+
+        adapter = RankingAdapter(partidas, requireContext())
+
         binding.rankingLayout.setHasFixedSize(true)
         binding.rankingLayout.layoutManager = LinearLayoutManager(activity)
         binding.rankingLayout.adapter = adapter
-    }
 
-    class RankingAdapter(private val partidas: ArrayList<Constantes.Partida>, context: Context, db: DB) :
-        RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
+    }//setUpRecyclerView(partidas : ArrayList<Constantes.Partida>)
 
-        val db: DB = db
-        val context: Context = context
+    class RankingAdapter(private val partidas: ArrayList<Constantes.Partida>, val context: Context) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-            fun bind(partida: Constantes.Partida){
+            fun bind(partida: Constantes.Partida) {
 
                 itemView.apodoPartidaR.text = partida.apodo
                 itemView.puntoPartidaR.text = partida.punto
                 itemView.avatarPartidaR.setImageResource(Constantes.guests[Random.nextInt(0, 5)])
 
-            }
+            }//bind(partida: Constantes.Partida)
 
-        }
+        }//ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
         override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
 
@@ -85,15 +90,17 @@ class RankingFragment : Fragment() {
 
             return ViewHolder(view)
 
-        }
+        }//onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val item = db.cargarRanking()[position]
+
+            val item = partidas[position]
             viewHolder.bind(item)
-        }
 
-        override fun getItemCount() = db.cargarRanking().size
+        }//onBindViewHolder(viewHolder: ViewHolder, position: Int)
 
-    }
+        override fun getItemCount() = partidas.size
 
-}
+    }//RankingAdapter(private val partidas: ArrayList<Constantes.Partida>, val context: Context, val db: DB) : RecyclerView.Adapter<RankingAdapter.ViewHolder>()
+
+}//RankingFragment()

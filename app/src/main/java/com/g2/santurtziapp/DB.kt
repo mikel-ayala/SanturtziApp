@@ -9,10 +9,11 @@ import com.g2.santurtziapp.Constantes.Partida
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?, version:Int): SQLiteOpenHelper(context,name,factory, version){
+class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?, version:Int): SQLiteOpenHelper(context,name,factory, version) {
 
     private val fb = FirebaseFirestore.getInstance()
 
+    //CREAR TABLAS
     override fun onCreate(db: SQLiteDatabase?) {
 
         db!!.execSQL("create table Partida(apodo text primary key, punto text)")
@@ -20,6 +21,7 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
     }//onCreate(db: SQLiteDatabase?)
 
+    //ACTUALIZAR TABLAS
     override fun onUpgrade(db: SQLiteDatabase?, old: Int, new: Int) {
 
         db!!.execSQL("drop table if exists Partida")
@@ -29,19 +31,21 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
     }//onUpgrade(db: SQLiteDatabase?, old: Int, new: Int)
 
+    //INSERTAR UNA NUEVA PARTIDA
     fun insertarPartida(apodo: String) {
 
         val db: SQLiteDatabase = this.writableDatabase
-        val insertar: ContentValues = ContentValues()
+        val insertar = ContentValues()
 
         insertar.put("apodo", apodo)
         insertar.put("punto", 0)
-        db?.insert("Partida", null, insertar)
+        db.insert("Partida", null, insertar)
 
         fb.collection("Partida").document(apodo).set(hashMapOf("Punto" to 0))
 
     }//insertarPartida(apodo: String)
 
+    //CARGAR UNA PARTIDA
     fun cargarPartida(apodo: String): Partida? {
 
         val db: SQLiteDatabase = this.readableDatabase
@@ -51,28 +55,32 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
             Partida(cursor.getString(0), cursor.getString(1))
 
-        } else {
+        }//if (cursor.moveToFirst())
+
+        else {
 
             null
 
-        }
+        }//if (!cursor.moveToFirst())
 
     }//cargarPartida(apodo: String): Partida
 
+    //ACTUALIZAR UNA PARTIDA
     fun actualizarPartida(apodo: String, punto: String) {
 
         val db: SQLiteDatabase = this.writableDatabase
-        val actualizar: ContentValues = ContentValues()
+        val actualizar = ContentValues()
 
         actualizar.put("apodo", apodo)
         actualizar.put("punto", punto)
 
-        db?.update("Partida", actualizar, "apodo = ?", arrayOf(apodo))
+        db.update("Partida", actualizar, "apodo = ?", arrayOf(apodo))
 
         fb.collection("Partida").document(apodo).set(hashMapOf("Punto" to punto))
 
     }//actualizarPartida(apodo: String, punto: String)
 
+    //CARGAR TODAS LA PARTIDAS DE LA TABLA PARTIDAS
     fun cargarPartidas(): ArrayList<Partida> {
 
         val lista: ArrayList<Partida> = ArrayList()
@@ -83,12 +91,13 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
             lista.add(Partida(cursor.getString(0), cursor.getString(1)))
 
-        }//has next
+        }//while (cursor.moveToNext())
 
         return lista
 
     }//cargarPartida(): ArrayList<Partida>
 
+    //BORRAR TODAS LAS PARTIDAS DE LA TABLA RANKING
     fun limpiarRanking() {
 
         val db: SQLiteDatabase = this.writableDatabase
@@ -97,6 +106,7 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
     }//limpiarRanking()
 
+    //INSERTAR TODAS LA PARTIDAS DEL FIREBASE A LA TABLA RANKING
     fun actualizarRanking(lista: ArrayList<Partida>) {
 
         val db: SQLiteDatabase = this.writableDatabase
@@ -112,6 +122,7 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
     }//actualizarRanking(lista: ArrayList<Partida>)
 
+    //CARGAR TODAS LAS PARTIDAS DE LA TABLA RANKING
     fun cargarRanking(): ArrayList<Partida> {
 
         val lista: ArrayList<Partida> = ArrayList()
@@ -122,11 +133,11 @@ class DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?,
 
             lista.add(Partida(cursor.getString(0), cursor.getString(1)))
 
-        }//has next
+        }//while (cursor.moveToNext())
 
         return lista
 
     }//cargarRanking(): ArrayList<Partida>
 
-}//DB
+}//DB(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?, version:Int): SQLiteOpenHelper(context,name,factory, version)
 

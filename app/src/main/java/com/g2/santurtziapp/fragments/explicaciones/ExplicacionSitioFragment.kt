@@ -11,14 +11,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.g2.santurtziapp.DB
 import com.g2.santurtziapp.R
 import com.g2.santurtziapp.SharedApp
@@ -37,20 +35,16 @@ class ExplicacionSitioFragment : Fragment() {
     lateinit var cancion: MediaPlayer
     private lateinit var routine: CoroutineScope
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentExplicacionSitioBinding.inflate(layoutInflater)
 
         return binding.root
-    }
+
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -59,6 +53,7 @@ class ExplicacionSitioFragment : Fragment() {
         val j: JuegoActivity? = activity as JuegoActivity?
         val lugar = j?.checkPuntoPartida(SharedApp.puntopartida.Partida)
 
+        //DIALOGO PARA IR AL MAPA
         val alertDialog: AlertDialog? = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -75,18 +70,23 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Hasiera)
                         dialog.dismiss()
-                    })
+
+                    })//setPositiveButton()
+
                 setNegativeButton(R.string.menu_cerrar,
                     DialogInterface.OnClickListener { dialog, id ->
 
                         dialog.dismiss()
 
-                    })
-            }
+                    })//setNegativeButton()
+
+            }//builder
 
             builder.create()
-        }
 
+        }//alertDialog
+
+        //OVERRIDE DE EL ONBACKPRESSED DE LA ACTIVITY
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
 
@@ -94,11 +94,11 @@ class ExplicacionSitioFragment : Fragment() {
 
                     alertDialog?.show()
 
-                }
+                }//if (binding.sitioExplicacion.text == lugar!![2])
 
-            }
+            }//onBackPressed()
 
-        })
+        })//callback(viewLifecycleOwner, object : OnBackPressedCallback(true)
 
         var heightDp = resources.displayMetrics.run { heightPixels / density }
 
@@ -121,7 +121,7 @@ class ExplicacionSitioFragment : Fragment() {
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, true)
 
-                }
+                }//onClick()
 
                 binding.sitioNext.setOnClickListener {
 
@@ -143,15 +143,17 @@ class ExplicacionSitioFragment : Fragment() {
                         )
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Hasiera)
-                    }
+
+                    }//if (binding.sitioExplicacion.text == lugar[4])
 
                     audio(lugar[5])
                     binding.sitioExplicacion.typeWrite(this, lugar[4], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, false)
 
-                }
+                }//onClick()
 
-            }
+            }//0
+
             "1" -> {
 
                 binding.sitioPrev.setOnClickListener {
@@ -161,11 +163,11 @@ class ExplicacionSitioFragment : Fragment() {
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, true)
 
-                }
+                }//onClick()
 
                 binding.sitioNext.setOnClickListener {
 
-                    if (binding.sitioExplicacion.text == lugar[5]){
+                    if (binding.sitioExplicacion.text == lugar[5]) {
 
                         JuegoActivity().slideView(
                             requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego),
@@ -180,7 +182,7 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                    }
+                    }//if (binding.sitioExplicacion.text == lugar[5])
 
                     requireActivity().supportFragmentManager.setFragmentResult("foto", bundleOf("imagen" to "4"))
                     audio(lugar[6])
@@ -189,9 +191,10 @@ class ExplicacionSitioFragment : Fragment() {
                     j.disableOrEnableButton(binding.sitioPrev, false)
                     j.disableOrEnableButton(binding.sitioNext, true)
 
-                }
+                }//onClick()
 
-            }
+            }//1
+
             "2" -> {
 
                 binding.sitioPrev.setOnClickListener {
@@ -201,11 +204,11 @@ class ExplicacionSitioFragment : Fragment() {
                     audio(lugar[3])
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
 
-                }
+                }//onClick
 
                 binding.sitioNext.setOnClickListener {
 
-                    if (binding.sitioExplicacion.text == lugar[5]){
+                    if (binding.sitioExplicacion.text == lugar[5]) {
 
                         JuegoActivity().slideView(
                             requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego),
@@ -220,7 +223,7 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                    }
+                    }//if (binding.sitioExplicacion.text == lugar[5])
 
                     requireActivity().supportFragmentManager.setFragmentResult("foto", bundleOf("imagen" to "4"))
                     audio(lugar[6])
@@ -229,8 +232,10 @@ class ExplicacionSitioFragment : Fragment() {
                     j.disableOrEnableButton(binding.sitioPrev, false)
                     j.disableOrEnableButton(binding.sitioNext, true)
 
-                }
-            }
+                }//onClick()
+
+            }//2
+
             "3" -> {
 
                 binding.sitioPrev.setOnClickListener {
@@ -240,11 +245,11 @@ class ExplicacionSitioFragment : Fragment() {
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, true)
 
-                }
+                }//onClick()
 
                 binding.sitioNext.setOnClickListener {
 
-                    if (binding.sitioExplicacion.text == lugar[5]){
+                    if (binding.sitioExplicacion.text == lugar[5]) {
 
                         JuegoActivity().slideView(
                             requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego),
@@ -254,7 +259,7 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                    }
+                    }//if (binding.sitioExplicacion.text == lugar[5])
 
                     requireActivity().supportFragmentManager.setFragmentResult("foto", bundleOf("imagen" to "4"))
                     audio(lugar[6])
@@ -263,9 +268,10 @@ class ExplicacionSitioFragment : Fragment() {
                     j.disableOrEnableButton(binding.sitioPrev, false)
                     j.disableOrEnableButton(binding.sitioNext, true)
 
-                }
+                }//onClick
 
-            }
+            }//3
+
             "4" -> {
 
                 binding.sitioNext.setOnClickListener {
@@ -278,9 +284,10 @@ class ExplicacionSitioFragment : Fragment() {
 
                     Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                }
+                }//onClick()
 
-            }
+            }//4
+
             "5" -> {
 
                 binding.sitioPrev.setOnClickListener {
@@ -293,7 +300,7 @@ class ExplicacionSitioFragment : Fragment() {
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, true)
 
-                }
+                }//onClick()
 
                 binding.sitioNext.setOnClickListener {
 
@@ -307,7 +314,7 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                    }
+                    }//if (binding.sitioExplicacion.text == lugar[5])
 
                     requireActivity().supportFragmentManager.setFragmentResult(
                         "foto",
@@ -319,9 +326,10 @@ class ExplicacionSitioFragment : Fragment() {
                     j.disableOrEnableButton(binding.sitioPrev, false)
                     j.disableOrEnableButton(binding.sitioNext, true)
 
-                }
+                }//onClick()
 
-            }
+            }//5
+
             "6" -> {
 
                 binding.sitioPrev.setOnClickListener {
@@ -334,7 +342,7 @@ class ExplicacionSitioFragment : Fragment() {
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, true)
 
-                }
+                }//onClick()
 
                 binding.sitioNext.setOnClickListener {
 
@@ -348,7 +356,7 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                    }
+                    }//if (binding.sitioExplicacion.text == lugar[5])
 
                     requireActivity().supportFragmentManager.setFragmentResult(
                         "foto",
@@ -360,9 +368,9 @@ class ExplicacionSitioFragment : Fragment() {
                     j.disableOrEnableButton(binding.sitioPrev, false)
                     j.disableOrEnableButton(binding.sitioNext, true)
 
-                }
+                }//onClick()
 
-            }
+            }//6
 
             "7" -> {
 
@@ -383,13 +391,13 @@ class ExplicacionSitioFragment : Fragment() {
 
                         cancion.stop()
 
-                    }
+                    }//if (cancion.isPlaying)
 
                     audio(lugar[3])
                     binding.sitioExplicacion.typeWrite(this, lugar[2], 33L, j)
                     j.disableOrEnableButton(binding.sitioPrev, true)
 
-                }
+                }//onClick()
 
                 binding.sitioNext.setOnClickListener {
 
@@ -403,7 +411,7 @@ class ExplicacionSitioFragment : Fragment() {
 
                         Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                    }
+                    }//if (binding.sitioExplicacion.text == lugar[5])
 
                     requireActivity().supportFragmentManager.setFragmentResult(
                         "foto",
@@ -423,37 +431,41 @@ class ExplicacionSitioFragment : Fragment() {
                             cancion.stop()
                             binding.imgmusica.pauseAnimation()
 
-                        } else {
+                        }//if (cancion.isPlaying)
+
+                        else {
 
                             cancion = MediaPlayer.create(requireContext(), R.raw.desdesanturceabilbao)
                             mp.stop()
                             binding.imgmusica.playAnimation()
                             cancion.start()
 
-                        }
+                        }//if (!cancion.isPlaying)
 
-                    }
+                    }//onClick
 
                     j.disableOrEnableButton(binding.sitioPrev, false)
                     j.disableOrEnableButton(binding.sitioNext, true)
 
-                }
+                }//onClick()
 
-            }
+            }//7
+
             "8" -> {
 
                 binding.sitioNext.setOnClickListener {
 
                     Navigation.findNavController(view).navigate(R.id.action_Sitio_Juego)
 
-                }
+                }//onClick()
 
-            }
+            }//8
 
-        }
+        }//when (SharedApp.puntopartida.Partida)
 
-    }
+    }//onViewCreated(view: View, savedInstanceState: Bundle?)
 
+    //EXPLICACIONES ANIMADAS
     fun TextView.typeWrite(lifecycleOwner: LifecycleOwner, text: String, intervalMs: Long, juego: JuegoActivity) {
 
         this@typeWrite.text = ""
@@ -461,7 +473,8 @@ class ExplicacionSitioFragment : Fragment() {
         if(::routine.isInitialized){
 
             routine.cancel()
-        }
+
+        }//if(::routine.isInitialized)
 
         lifecycleOwner.lifecycleScope.launch {
 
@@ -472,61 +485,74 @@ class ExplicacionSitioFragment : Fragment() {
                 delay(intervalMs)
                 this@typeWrite.text = text.take(it + 1)
 
-            }
+            }//repeat(text.length)
 
             juego.disableOrEnableButton(binding.sitioNext, false)
 
-        }
+        }//launch
 
-    }
+    }//TextView.typeWrite(lifecycleOwner: LifecycleOwner, text: String, intervalMs: Long, juego: JuegoActivity)
 
+    //REPRODUCIR AUDIOS DE LAS EXPLICACIONES
     fun audio(audio: String) {
 
         if (::mp.isInitialized) {
 
             mp.stop()
 
-        }
+        }//if (::mp.isInitialized)
 
         mp = MediaPlayer.create(requireContext(), audio.toInt())
 
         mp.start()
 
-    }
+    }//audio(audio: String)
 
     override fun onPause() {
         super.onPause()
+
         if (::mp.isInitialized) {
+
             mp.stop()
-        }
+
+        }//if (::mp.isInitialized)
 
         if (::cancion.isInitialized) {
 
             if (cancion.isPlaying) {
+
                 cancion.stop()
-            }
-        }
+
+            }//if (cancion.isPlaying)
+
+        }//if (::cancion.isInitialized)
 
         binding.textmusica.isVisible = false
 
-    }
+    }//onPause()
 
     override fun onDestroy() {
         super.onDestroy()
-        if (::mp.isInitialized){
+
+        if (::mp.isInitialized) {
+
             mp.stop()
-        }
+
+        }//if (::mp.isInitialized)
 
         if (::cancion.isInitialized) {
 
             if (cancion.isPlaying) {
+
                 cancion.stop()
-            }
-        }
+
+            }//if (cancion.isPlaying)
+
+        }//if (::cancion.isInitialized)
 
         binding.imgmusica.isVisible = false
         binding.textmusica.isVisible = false
 
-    }
+    }//onDestroy()
 
-}
+}//ExplicacionSitioFragment()

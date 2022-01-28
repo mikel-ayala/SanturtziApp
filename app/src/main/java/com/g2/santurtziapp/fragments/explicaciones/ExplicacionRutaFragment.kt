@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.navigation.Navigation
 import com.g2.santurtziapp.R
@@ -24,29 +23,26 @@ class ExplicacionRutaFragment : Fragment() {
 
     lateinit var binding: FragmentExplicacionRutaBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentExplicacionRutaBinding.inflate(layoutInflater)
 
         return binding.root
-    }
+
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val j: JuegoActivity? = activity as JuegoActivity?
-        var heightDp = resources.displayMetrics.run { heightPixels / density }
+        val heightDp = resources.displayMetrics.run { heightPixels / density }
 
         binding.rutaNext.isEnabled = false
 
+        //COMPROBAR PERMISOS DE LOCALIZACIÓN
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -59,7 +55,9 @@ class ExplicacionRutaFragment : Fragment() {
             j.startActivity(Intent(requireContext(), MainActivity::class.java))
             j.finish()
 
-        } else {
+        }//if (ActivityCompat.checkSelfPermission( requireContext(), Manifest.permission.ACCESS_FINE_LOCATION ) != PackageManager.PERMISSION_GRANTED)
+
+        else {
 
             Handler().postDelayed(Runnable {
 
@@ -73,12 +71,15 @@ class ExplicacionRutaFragment : Fragment() {
 
                     Navigation.findNavController(view).navigate(R.id.action_Ruta_Sitio)
 
-                } else {
+                }//if ((SharedApp.puntopartida.Partida == "0") || (SharedApp.puntopartida.Partida == "8"))
+
+                else {
 
                     j?.replaceFragment(MapaFragment(), 2)
 
                     val lugar = j?.checkPuntoPartida(SharedApp.puntopartida.Partida)
 
+                    //MODO LIBRE
                     requireActivity().supportFragmentManager.setFragmentResultListener(
                         "libre",
                         viewLifecycleOwner
@@ -86,31 +87,29 @@ class ExplicacionRutaFragment : Fragment() {
 
                         val result = bundle.getInt("punto")
 
-                        if (result != null) {
+                        SharedApp.puntopartida.Partida = (result + 1).toString()
 
-                            SharedApp.puntopartida.Partida = (result + 1).toString()
+                        JuegoActivity().slideView(
+                            requireActivity().findViewById<FrameLayout>(R.id.fragment1Juego),
+                            requireActivity().findViewById<FrameLayout>(R.id.fragment1Juego).height,
+                            0
+                        )
 
-                            JuegoActivity().slideView(
-                                requireActivity().findViewById<FrameLayout>(R.id.fragment1Juego),
-                                requireActivity().findViewById<FrameLayout>(R.id.fragment1Juego).height,
-                                0
-                            )
+                        JuegoActivity().slideView(
+                            requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego),
+                            requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego).height,
+                            (heightDp / 1.5).toInt()
+                        )
 
-                            JuegoActivity().slideView(
-                                requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego),
-                                requireActivity().findViewById<FrameLayout>(R.id.fragment2Juego).height,
-                                (heightDp / 1.5).toInt()
-                            )
+                        Navigation.findNavController(view).navigate(R.id.action_Ruta_Sitio)
 
-                            Navigation.findNavController(view).navigate(R.id.action_Ruta_Sitio)
-
-                        }
-                    }
+                    }//FragmentResultListener
 
                     binding.rutaLugar.text = lugar!![0]
 
                     binding.rutaImagen.setImageResource(lugar[1].toInt())
 
+                    //MODO GUIADO
                     requireActivity().supportFragmentManager.setFragmentResultListener(
                         "mapa",
                         viewLifecycleOwner
@@ -122,14 +121,15 @@ class ExplicacionRutaFragment : Fragment() {
 
                             binding.rutaNext.isEnabled = true
 
-                        }
+                        }//if (result != null && result == "yes")
 
                         if (result != null && result == "no") {
 
                             binding.rutaNext.isEnabled = false
 
-                        }
-                    }
+                        }//if (result != null && result == "no")
+
+                    }//FragmentResultListener
 
                     binding.rutaNext.setOnClickListener {
 
@@ -146,12 +146,15 @@ class ExplicacionRutaFragment : Fragment() {
                         )
 
                         Navigation.findNavController(view).navigate(R.id.action_Ruta_Sitio)
-                    }
-                }
+
+                    }//onClick
+
+                }//if ((SharedApp.puntopartida.Partida != "0") || (SharedApp.puntopartida.Partida != "8"))
 
             }, 500)
 
-        }
-    }
+        }//if (ActivityCompat.checkSelfPermission( requireContext(), Manifest.permission.ACCESS_FINE_LOCATION ) == PackageManager.PERMISSION_GRANTED)
 
-}
+    }//onViewCreated(view: View, savedInstanceState: Bundle?)
+
+}//ExplicacionRutaFragment()

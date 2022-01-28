@@ -13,8 +13,9 @@ class AnimacionFinalFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_animacion_final, container, false)
-    }
 
-}
+        return inflater.inflate(R.layout.fragment_animacion_final, container, false)
+
+    }//onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View?
+
+}//AnimacionFinalFragment()
