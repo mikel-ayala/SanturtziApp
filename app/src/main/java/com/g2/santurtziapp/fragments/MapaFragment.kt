@@ -44,14 +44,6 @@ class MapaFragment : Fragment() {
 
         googleMap = GoogleMap
 
-        if (!SharedApp.modolibre.modo) {
-
-            googleMap.isMyLocationEnabled=true
-            googleMap.uiSettings.isMyLocationButtonEnabled = false
-            googleMap.uiSettings.isCompassEnabled=false
-
-        }//if (!SharedApp.modolibre.modo)
-
         paradas.forEach {
             val marcador= googleMap.addMarker(MarkerOptions().position(it))
 
@@ -96,36 +88,17 @@ class MapaFragment : Fragment() {
         }//when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK)
 
         if(!SharedApp.modolibre.modo){
+            googleMap.isMyLocationEnabled=true
+            googleMap.uiSettings.isMyLocationButtonEnabled = false
+            googleMap.uiSettings.isCompassEnabled=false
             fusedLocation.lastLocation.addOnSuccessListener {
                 if (it!=null){
                     ubicacion = LatLng(it.latitude, it.longitude)
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15f))
-                    println("Ubicación actual. Latitud: "+it.latitude+". Longitud: "+it.longitude)
                 }
             }
-        }else{
-            ubicacion = LatLng(43.3351509,-3.0331127)
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15f))
-        }
-        //Se activa el botón de juego al seleccionar un punto
-        if(SharedApp.modolibre.modo){
-            googleMap.setOnMarkerClickListener { marker ->
-                //Genera un mensaje "Prueba: "+mX .Donde X es la id del marcador
-                println("Prueba: "+marker.id)
-                setFragmentResult("libre", bundleOf("punto" to marker.id.substring(1,2).toInt()))
-                true
-            }
-            val handler= Handler()
-            handler.postDelayed({
-                JuegoActivity().slideView(requireActivity().findViewById(R.id.fragment1Juego),
-                    requireActivity().findViewById<FrameLayout>(R.id.fragment1Juego).height,
-                    requireActivity().findViewById<LinearLayout>(R.id.juegoLinearL).height)
-            }, 500)
-        }
 
-        /*Autofocus de la cámara al cambiar la ubicación
-        (ahora está comentado por una cuestión de funcionalidad)*/
-        if(!SharedApp.modolibre.modo){
+            //Autofocus de la cámara al cambiar la ubicación
             googleMap.setOnMyLocationChangeListener {
                 ubicacion= LatLng(it.latitude, it.longitude)
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 17f))
@@ -142,11 +115,31 @@ class MapaFragment : Fragment() {
 //                Location.distanceBetween(ubicacion.latitude,ubicacion.longitude,43.257686, -2.902560,distancia)
 
                 if (distancia[0]<50){
-                   setFragmentResult("mapa", bundleOf("rango" to "yes"))
+                    setFragmentResult("mapa", bundleOf("rango" to "yes"))
                 }else{
                     setFragmentResult("mapa", bundleOf("rango" to "no"))
                 }
             }
+        }
+
+        if(SharedApp.modolibre.modo){
+            //Carga la cámara del mapa por defecto en Santurtzi
+            ubicacion = LatLng(43.3351509,-3.0331127)
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15f))
+
+            //Se activa el botón de juego al seleccionar un punto
+            googleMap.setOnMarkerClickListener { marker ->
+                //Genera un mensaje "Prueba: "+mX .Donde X es la id del marcador
+                println("Prueba: "+marker.id)
+                setFragmentResult("libre", bundleOf("punto" to marker.id.substring(1,2).toInt()))
+                true
+            }
+            val handler= Handler()
+            handler.postDelayed({
+                JuegoActivity().slideView(requireActivity().findViewById(R.id.fragment1Juego),
+                    requireActivity().findViewById<FrameLayout>(R.id.fragment1Juego).height,
+                    requireActivity().findViewById<LinearLayout>(R.id.juegoLinearL).height)
+            }, 500)
         }
 
     }
@@ -162,6 +155,7 @@ class MapaFragment : Fragment() {
         binding.UbicacionButton.setOnClickListener {
 
             if(!SharedApp.modolibre.modo) {
+
                 fusedLocation.lastLocation.addOnSuccessListener {
                     ubicacion = LatLng(it.latitude, it.longitude)
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15f))
